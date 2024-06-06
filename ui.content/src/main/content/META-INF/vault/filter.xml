@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/formazioneboilerplate" mode="merge"/>
+    <filter root="/content/formazioneboilerplate" mode="merge"/>
+    <filter root="/content/dam/formazioneboilerplate" mode="merge">
+        <exclude pattern="/content/dam/formazioneboilerplate(/.*)?"/>
+        <include pattern="/content/dam/formazioneboilerplate/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/formazioneboilerplate/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/formazioneboilerplate" mode="merge"/>
+</workspaceFilter>

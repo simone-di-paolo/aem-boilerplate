@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/formazioneboilerplate",
+        "create path (nt:unstructured) /content/dam/formazioneboilerplate/jcr:content",
+        "set properties on /content/dam/formazioneboilerplate/jcr:content\n  set cq:conf{String} to /conf/formazioneboilerplate\n  set jcr:title{String} to \"Formazione Boilerplate\"\nend"
+    ]
+}
