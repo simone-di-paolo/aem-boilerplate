@@ -179,5 +179,15 @@
             <version>1.2.4-1.4.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.all</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq.dam</groupId>
+            <artifactId>cq-delivery-api</artifactId>
+        </dependency>
     </dependencies>
 </project>
