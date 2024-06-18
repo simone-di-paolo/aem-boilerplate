@@ -1,0 +1,64 @@
+.footer {
+  background-color: #103741;
+  color: grey;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  a:hover {
+    color: #fe7555;
+    cursor: pointer;
+  }
+
+  .menu-footer {
+    padding: 1rem;
+    justify-content: space-between;
+
+    a {
+      padding-right: 1rem;
+    }
+  }
+}
+
+  /*
+  .newsletter {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+
+    .label{
+      padding-left: 1rem;
+    }
+
+    #email {
+      margin-left: 10px;
+      padding-inline-start: 16px;
+      color: rgba(255, 255, 255, .5);
+      border-radius: 2rem;
+      padding: 0.5rem;
+      border-color: rgba(255, 255, 255, .5);
+      background-color: transparent;
+    }
+    .btn-footer {
+      margin-top: 1rem;
+      background-color: #fe7555;
+      border: none;
+      color: white;
+      border-radius: 16px;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    .btn-footer:hover {
+      cursor: pointer;
+    }
+  }
+
+   */
