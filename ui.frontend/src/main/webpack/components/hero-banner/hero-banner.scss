@@ -1,0 +1,78 @@
+.hero-banner {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 742px;
+  width: 100%;
+
+  .hero-banner-background{
+    position:absolute;
+    background-size: cover;
+    background-position: 100%;
+    z-index:0;
+  }
+  .space {
+    width: 337px;
+    height: 742px;
+  }
+
+  .hero-banner-component {
+    margin-left: 4rem;
+    h1 {
+      position:relative;
+      z-index: 1;
+      font-family: 'Lobster Two', cursive;
+      font-weight: 900;
+      font-size: 68px;
+      margin: 0 0 24px;
+    }
+
+    p {
+      position:relative;
+      z-index: 1;
+      padding-right: 15rem;
+      font-size: 20px;
+      margin: 0 0 24px;
+      padding-top: 8px;
+    }
+  }
+
+  .btn-1 {
+    position:relative;
+    z-index: 1;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    background-color: #fe7555;
+    color: white;
+    border-radius: 16px;
+    border: none;
+    padding: 1rem 3rem 1rem 3rem;
+    font-size: 1rem;
+
+  }
+
+  .btn-1:hover {
+    cursor: pointer;
+  }
+
+  .btn-2 {
+    position:relative;
+    z-index: 1;
+    background-color: #103741;
+    color: white;
+    border-radius: 16px;
+    border: none;
+    padding: 1rem 3rem 1rem 3rem;
+    font-size: 1rem;
+  }
+
+  .btn-2:hover {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
