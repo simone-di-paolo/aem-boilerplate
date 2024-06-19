@@ -1,0 +1,13 @@
+<div class="footer">
+    <div>
+        <p>© <a href="#" class="link-footer">${properties.nameSite}</a>
+            , All Rights Reserved. Designed By <a href="#" class="link-footer">${properties.name} </a></p>
+    </div>
+    <div class="menu-footer" data-sly-list.multifield="${resource.listChildren}">
+    <sly data-sly-list.elements="${multifield.listChildren}">
+        <sly data-sly-test ="${multifield.name=='elementsList'}" >
+            <a href="${elements.link}">${elements.linkLabel}</a>
+        </sly>
+    </sly>
+    </div>
+</div>
