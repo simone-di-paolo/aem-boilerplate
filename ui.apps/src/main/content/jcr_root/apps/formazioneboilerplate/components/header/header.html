@@ -1,12 +1,51 @@
-<div class="hero-banner">
-    <div class="hero-banner-component">
-        <img src="${properties.backgroundImage}" class="hero-banner-background"/>
-        <h1>${properties.title}</h1>
-        <p>${properties.text}</p>
-        <button type="button" class="btn-1">${properties.buttonOneLabel}</button>
-        <button type="button" class="btn-2">
-            <a href="${properties.buttonTwoLink}">${properties.buttonTwoLabel}</a>
-        </button>
+<div class="header" data-sly-use.model="com.formazioneboilerplate.core.models.Header">
+    <div class="logo">
+        <img src="${properties.logoImage}" alt="Logo Image" class="logo-image">
     </div>
-    <div class="space"> </div>
+    <div class="menu"
+         data-sly-list="${model.menuItems}">
+        <div class="sub-menu-container"
+            data-sly-unwrap="${!item.subMenuItems}">
+            <a href="#" class="link list-menu"> ${item.navLabel}</a>
+                <div data-sly-list.subMenu="${item.subMenuItems}" class="sub-menu-link">
+                    <a href="${subMenu.subLink}" class="link">${subMenu.subLabel}</a>
+                </div>
+        </div>
+    </div>
+    <div class="button">
+        <a href="#" class="link">${properties.buttonLabel}<div class="arrow">
+        </div></a>
+    </div>
 </div>
+
+<!--/*
+<div class="menu"
+         data-sly-use.model="com.formazioneboilerplate.core.models.Header">
+        <ul data-sly-list="${model.menuItems}">
+            <li class="list-menu ${item.subMenuItems ? 'parent-menu' : ''}"> ${item.navLabel}</li>
+            <sly data-sly-u>
+                <sly data-sly-list.subMenu="${item.subMenuItems}">
+                    <a href="${subMenu.subLink}">${subMenu.subLabel}</a>
+                </sly>
+            </sly>
+        </ul>
+    </div>
+
+
+    <div class="menu">
+        <table data-sly-list.multifield="${resource.listChildren}">
+            <tr data-sly-list.elements="${multifield.listChildren}">
+                <sly data-sly-test ="${multifield.name=='elementsList'}" >
+                    <td class="list-menu"> ${elements.label}</td>
+                    <sly data-sly-list.subMenu="${elements.listChildren}">
+                        <p>${subMenu.count}</p>
+                        <sly data-sly-test="${subMenuList.count > 1}">
+                            <a href="${subMenu.link}">${subMenu.label}</a>
+                        </sly>
+                    </sly>
+                </sly>
+            </tr>
+        </table>
+    </div>
+*/-->
+
