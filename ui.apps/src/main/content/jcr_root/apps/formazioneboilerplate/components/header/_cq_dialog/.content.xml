@@ -12,46 +12,75 @@
                     sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
 
-                    <backgroundImage
+                    <logoImage
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                             fieldDescription="Path of the image."
                             fieldLabel="Path Image"
-                            name="./backgroundImage"
+                            name="./logoImage"
                             required="{Boolean}true"
                             rootPath="/content/dam"/>
 
-                    <title
+                    <myElements
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="my elements"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <elementMultifield
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Accordion Elements"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        name="./menuItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <navLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Label"
+                                                name="./navLabel"/>
+                                        <subMenu
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="My Sub-Elements"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <subMenuItems
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Accordion Elements"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true">
+                                                    <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./subMenuItems">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <subLabel
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldLabel="label"
+                                                                    name="./subLabel"/>
+                                                            <subLink
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                    fieldLabel="link"
+                                                                    name="./subLink"/>
+                                                        </items>
+                                                    </field>
+                                                </subMenuItems>
+                                            </items>
+                                        </subMenu>
+                                    </items>
+                                </field>
+                            </elementMultifield>
+                        </items>
+                    </myElements>
+                    <buttonLabel
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Title"
-                            name="./title"/>
-                    <text
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Text"
-                            name="./text"/>
-
-                    <buttonOneLabel
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Label Button 1"
-                            name="./buttonOneLabel"/>
-
-                    <buttonTwoLabel
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Label Button 2"
-                            name="./buttonTwoLabel"/>
-
-                    <buttonTwoLink
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                        fieldLabel="Link Button 2"
-                        name = "./buttonTwoLink"/>
-
-
-
+                            fieldLabel="Label Button"
+                            name="./buttonLabel"/>
                 </items>
             </column>
         </items>
