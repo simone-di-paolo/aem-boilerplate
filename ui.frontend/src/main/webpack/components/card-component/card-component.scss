@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Lobster Two';
+  font-style: italic;
+  font-display: swap;
+  src: url(https://fonts.googleapis.com/css2?family=Roboto:ital) format('woff2');
+}
+
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+  font-family: 'Roboto';
+
+  .card {
+    background-color: #eceff1;
+    border-radius: 12px;
+    max-width: 250px;
+    width: 250px;
+    height: 350px;
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    .card-header {
+      height: 150px;
+      width: 100%;
+      margin: 0;
+      top: 0;
+
+      .card-image {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+        margin: 0;
+        top: 0;
+        border-radius: 12px 12px 0 0;
+      }
+    }
+
+    .card-body {
+      height: 130px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .card-title {
+        text-align: center;
+
+      }
+
+      .card-description {
+        text-align: center;
+        font-family: Roboto;
+        width: 85%;
+        margin: 5px;
+        padding: 0;
+      }
+    }
+
+
+    .card-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: end;
+      height: 100px;
+      bottom: 0;
+      margin-top: 10px;
+
+      .card-button {
+        background-color: white;
+        text-transform: uppercase;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: Roboto;
+        font-weight: 600;
+        margin-bottom: 35px;
+        font-size: 14px;
+      }
+
+      .card-button:hover {
+        cursor: pointer;
+        background-color: #f9fcff;
+      }
+    }
+
+  }
+}
+
+.card-intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+
+
+  .card-intro-title {
+    font-family: Roboto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .card-intro-subtitle {
+    font-family: Roboto;
+    font-weight: 200;
+  }
+}
