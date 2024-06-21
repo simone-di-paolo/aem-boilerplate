@@ -1,0 +1,123 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 3rem 0.5rem 0;
+  background-color: white;
+
+  .logo-image {
+    width: 150px;
+  }
+
+  .menu {
+    display: flex;
+    padding: 10px;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: none;
+    }
+
+    .list-menu {
+      padding-left: 1rem;
+      .a{
+        padding-right: 1.5rem;
+      }
+      .arrow {
+        margin-top: 6px;
+        margin-left: 4px;
+        width: 8px;
+        height: 8px;
+        float: right;
+        transform: rotate(-45deg);
+        box-shadow: -2px 2px 0 black;
+      }
+    }
+
+    .list-menu:hover {
+      color: #fe7555;
+      cursor: pointer;
+
+      .arrow:hover {
+        box-shadow: -2px 2px 0 #fe7555;
+        cursor: pointer;
+      }
+
+    }
+
+    .sub-menu-container:hover {
+      .sub-menu-link {
+        margin-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    }
+
+    .sub-menu-container {
+      margin:0;
+      flex-direction: row;
+      .sub-menu-link {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        border: black;
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1rem;
+
+        a {
+          padding-right: 1rem;
+          text-decoration: none;
+          color: black;
+          font-weight: 500;
+          border: none;
+          padding-top: 0.5rem;
+        }
+
+        a:hover {
+          color: #fe7555;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+
+
+  .button {
+    margin-right: 2rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    .arrow {
+      margin-top: 4.5px;
+      margin-left: 15px;
+      width: 10px;
+      height: 10px;
+      float: right;
+      transform: rotate(225deg);
+      box-shadow: -2px 2px 0 white;
+    }
+
+    .link {
+      text-decoration: none;
+      color: white;
+      background-color: #fe7555;
+      border-radius: 16px;
+      padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border: none;
+    }
+  }
+}
