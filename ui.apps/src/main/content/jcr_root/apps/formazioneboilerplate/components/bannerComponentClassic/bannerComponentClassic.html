@@ -1,0 +1,15 @@
+<!-- banner component -->
+<sly data-sly-use.model="com.formazioneboilerplate.core.models.BannerComponent">
+    <sly data-sly-list="${model.elementsBanners}" >
+        <div class="banner-component ${item.selectTheme}">
+            <div class="banner-left-container">
+                <img class="banner-image" src="${item.image @context='uri'}" alt="Image">
+            </div>
+            <div class="banner-right-container">
+                <h2 data-sly-element="${properties.selectHeading @context='elementName'}">${item.title @context='html'}</h2>
+                <p>${item.subtitle @context='html'}</p>
+                <p>${item.text @context='html'}</p>
+            </div>
+        </div>
+    </sly>
+</sly>

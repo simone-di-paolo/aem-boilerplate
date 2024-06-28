@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <heading
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            path="formazioneboilerplate/components/authoring/dialog/heading"/>
+
+                    <myMultifield
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Banner Multifield"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <elementsBanners
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Accordion Elements"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        name="./elementsBanners">
+                                    <items jcr:primaryType="nt:unstructured">
+
+                                        <image
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                fieldDescription="Path of the image."
+                                                fieldLabel="Path Image"
+                                                name="./image"
+                                                required="{Boolean}true"
+                                                rootPath="/content/dam"/>
+
+                                        <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                name="./title"/>
+                                        <subtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Sub-Title"
+                                                name="./subtitle"/>
+                                        <text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Text"
+                                                name="./text"/>
+
+                                        <selectTheme
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Select the theme"
+                                                name="./selectTheme">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <none
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value=""/>
+                                                <dark
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Dark"
+                                                        value="dark-theme"/>
+                                                <light
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Light"
+                                                        value="light-theme"/>
+                                            </items>
+                                        </selectTheme>
+
+                                    </items>
+                                </field>
+                            </elementsBanners>
+                        </items>
+                    </myMultifield>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

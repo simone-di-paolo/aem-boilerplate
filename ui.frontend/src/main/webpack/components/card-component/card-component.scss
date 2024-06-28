@@ -1,18 +1,9 @@
-@font-face {
-  font-family: 'Lobster Two';
-  font-style: italic;
-  font-display: swap;
-  src: url(https://fonts.googleapis.com/css2?family=Roboto:ital) format('woff2');
-}
-
-
 .cards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 16px;
-  font-family: 'Roboto';
 
   .card {
     background-color: #eceff1;
@@ -60,7 +51,6 @@
 
       .card-description {
         text-align: center;
-        font-family: Roboto;
         width: 85%;
         margin: 5px;
         padding: 0;
@@ -85,7 +75,6 @@
         border-radius: 20px;
         cursor: pointer;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        font-family: Roboto;
         font-weight: 600;
         margin-bottom: 35px;
         font-size: 14px;
@@ -109,7 +98,6 @@
 
 
   .card-intro-title {
-    font-family: Roboto;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 32px;
@@ -118,7 +106,6 @@
   }
 
   .card-intro-subtitle {
-    font-family: Roboto;
     font-weight: 200;
   }
 }
