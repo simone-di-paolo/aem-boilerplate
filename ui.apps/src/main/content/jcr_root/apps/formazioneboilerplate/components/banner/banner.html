@@ -1,8 +1,11 @@
-<div class="hero-banner">
+<div class="hero-banner"
+     data-sly-use.configPageModel="com.formazioneboilerplate.core.models.ConfigPageModel"
+     data-sly-use.configTemplateModel="com.formazioneboilerplate.core.models.TemplateConfigModel">
     <img src="${properties.backgroundImage}" class="hero-banner-background" alt="background image"/>
     <div class="hero-banner-component">
-        <h1>${properties.title}</h1>
-        <p>${properties.text}</p>
+        <h1>${configPageModel.projectHeader}</h1>
+        <p>${configPageModel.projectDescription}</p>
+
         <button type="button" class="btn-1">${properties.buttonOneLabel}</button>
         <button type="button" class="btn-2">
             <a href="${properties.buttonTwoLink}">${properties.buttonTwoLabel}</a>
@@ -10,3 +13,10 @@
     </div>
     <div class="space"> </div>
 </div>
+
+<!--/* <p data-sly-test="${configTemplatePageModel.templateTitleCurrentPage =='Home Page - Template'}">
+    Stiamo utilizzando un ${configTemplatePageModel.templateTitleCurrentPage} nella pagina corrente
+</p>
+<p data-sly-test="${configTemplatePageModel.templateTitle !='Home Page - Template'}">
+    Stiamo utilizzando un ${configTemplatePageModel.templateTitle}
+</p>*/-->
