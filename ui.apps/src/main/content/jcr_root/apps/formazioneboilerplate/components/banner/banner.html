@@ -5,7 +5,9 @@
     <div class="hero-banner-component">
         <h1>${configPageModel.projectHeader}</h1>
         <p>${configPageModel.projectDescription}</p>
-
+        <p data-sly-list.pagine="${configTemplateModel.risultato}">
+            ${pagine}
+        </p>
         <button type="button" class="btn-1">${properties.buttonOneLabel}</button>
         <button type="button" class="btn-2">
             <a href="${properties.buttonTwoLink}">${properties.buttonTwoLabel}</a>
