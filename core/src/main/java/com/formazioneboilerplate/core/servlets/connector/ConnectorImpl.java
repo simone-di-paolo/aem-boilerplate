@@ -25,6 +25,11 @@ public JsonObject executeGet(String endPoint, Map<String, String> headers, Map<S
     CloseableHttpClient httpClient = HttpClients.createDefault();
     try{
         HttpGet httpGet = new HttpGet(endPoint);
+        if(headers != null){
+            for (Map.Entry<String, String> entry : headers.entrySet()){
+                httpGet.setHeader(entry.getKey(), entry.getValue());
+            }
+        }
         CloseableHttpResponse response = httpClient.execute(httpGet);
         HttpEntity entity = response.getEntity();
         String stringResponse = EntityUtils.toString(entity, CharEncoding.UTF_8);
