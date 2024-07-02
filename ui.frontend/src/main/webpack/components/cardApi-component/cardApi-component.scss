@@ -1,0 +1,25 @@
+.card-intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+
+
+  .card-intro-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .card-intro-subtitle {
+    font-weight: 200;
+  }
+}
+
+.api-card-component {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}

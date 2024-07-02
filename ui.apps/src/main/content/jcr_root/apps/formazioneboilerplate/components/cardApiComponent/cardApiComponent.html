@@ -1,0 +1,26 @@
+<!-- Dynamic API card component -->
+<div id="api-card-component" class="api-card-component" data-sly-use.modelCardAPI="com.formazioneboilerplate.core.models.CardApiComponent">
+    <div class="card-intro-container">
+        <h2 class="card-intro-title">
+            ${properties.title}
+        </h2>
+        <p class="card-intro-subtitle">
+            ${properties.description}
+        </p>
+    </div>
+    <div class="cards-container" data-sly-set.cards="${modelCardAPI.cards}" data-sly-list.card="${cards.cards}">
+        <div class="card md-card">
+            <div class="card-header">
+                <img class="card-image" src="${card.image}" alt="Image 1">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">${properties.labelName}: ${card.name}</h3>
+                <p class="card-description">${properties.labelJob}: ${card.job_role}</p>
+                <p class="card-description">${properties.labelBiografy}: ${card.biography}</p>
+            </div>
+            <div class="card-footer">
+                <a href="${card.social_url}" class="card-button md-button" target="_blank">Social URL</a>
+            </div>
+        </div>
+    </div>
+</div>
