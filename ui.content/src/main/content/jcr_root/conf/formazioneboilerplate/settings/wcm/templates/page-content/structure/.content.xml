@@ -13,7 +13,7 @@
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="formazioneboilerplate/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/formazioneboilerplate/us/en/site/header/master"/>
+                fragmentVariationPath="/content/experience-fragments/formazioneboilerplate/language-masters/en/site/header/master"/>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="formazioneboilerplate/components/container"
@@ -31,7 +31,7 @@
             <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="formazioneboilerplate/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/formazioneboilerplate/us/en/site/footer/master"/>
+                fragmentVariationPath="/content/experience-fragments/formazioneboilerplate/language-masters/en/site/footer/master"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
