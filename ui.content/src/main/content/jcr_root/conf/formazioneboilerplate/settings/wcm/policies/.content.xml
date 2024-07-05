@@ -306,12 +306,12 @@
                 </policy_1575040440977>
                 <policy_1718368709604
                     jcr:description="In questa policy andiamo a definire i componenti che possono essere aggiunti nel container del tamplate Home Page Template."
-                    jcr:lastModified="{Date}2024-06-17T12:04:52.148+02:00"
+                    jcr:lastModified="{Date}2024-06-28T15:36:33.406+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Home Page Container Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/formazioneboilerplate/components/banner]"
+                    components="[/apps/formazioneboilerplate/components/banner,/apps/formazioneboilerplate/components/cardComponent,/apps/formazioneboilerplate/components/cardApiComponent,/apps/formazioneboilerplate/components/bannerComponent,/apps/formazioneboilerplate/components/buttonSimple]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -337,6 +337,17 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1718368709604>
+                <policy_1719934235693
+                    jcr:description="In questa policy andiamo a definire i componenti che possono essere aggiunti nel container del tamplate Book Page Template."
+                    jcr:lastModified="{Date}2024-07-03T09:57:16.683+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Book Page Content Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/formazioneboilerplate/components/image,/apps/formazioneboilerplate/components/text,/apps/formazioneboilerplate/components/title]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1719934235693>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
