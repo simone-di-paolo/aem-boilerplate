@@ -79,12 +79,12 @@ public class SearchBookServlet extends SlingAllMethodsServlet {
                 if(!searchByJsonElement.isJsonNull()){
                     String searchBy = searchByJsonElement.getAsString();
                     if(StringUtils.isNotBlank(searchBy)){
-                        if(searchBy.equals("authorName")|| searchBy.equals("category") || searchBy.equals("datePublish"))
-                        {
-                            //si separa il body della request-> tipo di ricerca - valore di ricerca
-                            String[] split = searchBy.split("#");
-                            responseResult.addProperty("searchBy", "{"+ split[0] + "}"+" + "+"{" + split[1]+"}");
+                        //si separa il body della request-> tipo di ricerca - valore di ricerca
+                        String[] split = searchBy.split("#");
+                        responseResult.addProperty("searchBy", "{"+ split[0] + "}"+" + "+"{" + split[1]+"}");
 
+                        if(split[0].equals("authorName")|| split[0].equals("category") || split[0].equals("datePublish"))
+                        {
                                 //qui io sto ricavando attraverso la risorsa la pagina in cui la servlet è stata chiamata
                                 Resource resource = request.getResource();
                                 Page currentPage = resource.adaptTo(Page.class);
