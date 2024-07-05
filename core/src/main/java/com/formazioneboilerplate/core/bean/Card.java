@@ -19,7 +19,7 @@ import java.util.List;
 @Generated("jsonschema2pojo")
 
 public class Card {
-
+    //struttura della singola card
     @JsonProperty("age")
     private Integer age;
     @JsonProperty("biography")

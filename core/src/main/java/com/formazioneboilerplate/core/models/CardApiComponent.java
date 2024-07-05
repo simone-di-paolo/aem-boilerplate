@@ -30,7 +30,9 @@ public class CardApiComponent {
     @PostConstruct
     protected void init() {
         LOG.info("## Card API Component Model - init started ###");
+        // prendiamo attraverso una OSGI il file json sul server MAMPP
         JsonObject response = endPointConfigurations.getResponseFromEndPoint(endPointConfigurations.getEndPoint());
+        //utilizziamo l'oggetto gson perchè ci permette di prendere info dal json e convertirle
         Gson gson = new Gson();
         cards = gson.fromJson(response.toString(), Cards.class);
         LOG.info("## Card API Component Model - init finished ###");
