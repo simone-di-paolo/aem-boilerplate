@@ -1,0 +1,33 @@
+.spa-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0.4rem 3rem 0.4rem 0;
+  background-color: white;
+
+  .logo-image {
+    width: 150px;
+  }
+
+  .menu {
+    display: flex;
+    padding: 10px;
+    text-transform: uppercase;
+    a {
+      text-decoration: none;
+      color: #859098;
+      padding: 0 1rem 0 1rem;
+    }
+
+    a:hover {
+      color: #fe7555;
+      cursor: pointer;
+    }
+
+  }
+}
