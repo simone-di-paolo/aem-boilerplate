@@ -1,0 +1,33 @@
+.spa-footer {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+
+  .menu-spa-footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+    padding: 40px 0;
+
+    a {
+      text-decoration: none;
+      color: #859098;
+      padding: 0 1rem 0 1rem;
+    }
+
+    a:hover {
+      color: #fe7555;
+      cursor: pointer;
+    }
+  }
+  .copyright-footer{
+    color:#859098;
+    margin-left: 20px;
+    padding: 40px 0;
+    border-top: 1px solid #e1e5eb;
+  }
+
+}

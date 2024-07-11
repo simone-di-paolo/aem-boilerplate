@@ -1,0 +1,16 @@
+<div class="spa-footer"  data-sly-use.interface="com.formazioneboilerplate.core.models.SpaFooter">
+    <div data-sly-use.model="com.formazioneboilerplate.core.models.SpaPageModel">
+        <div class="menu-spa-footer">
+            <div class="logo">
+                <a href=""><img src="${model.logoImage}" alt="Logo Image" class="logo-image"></a>
+            </div>
+            <div data-sly-list="${interface.menuItems}">
+                <a href="${item.footerLink}"> ${item.footerLinkLabel}</a>
+            </div>
+        </div>
+        <div class="copyright-footer">
+            <p>© ${properties.copyrightLabel} </p>
+        </div>
+    </div>
+</div>
+
