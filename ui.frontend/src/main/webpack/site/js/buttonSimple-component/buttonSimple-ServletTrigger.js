@@ -1,15 +1,15 @@
 export default function buttonSimple () {
 
-    function activeServlet(){
+    function activeServlet() {
         let risultato;
         $.ajax({
             type: "GET",
-            url: "/bin/TrainingServlet",
+            url: "/bin/GetEndPointServlet",
             async: false,
             cache: false,
             contentType: "application/json",
             success: function (result) {
-                risultato=result;
+                risultato = result;
                 console.log(risultato);
             },
             error: function (request, error) {
@@ -18,7 +18,8 @@ export default function buttonSimple () {
         });
     }
 
-    let button=document.querySelector("#buttonSimple");
-    button.addEventListener("click", activeServlet);
+    let button = document.querySelector("#buttonSimple");
+    if (button) {
+        button.addEventListener("click", activeServlet);
+    }
 }
-

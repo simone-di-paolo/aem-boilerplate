@@ -1,6 +1,5 @@
 package com.formazioneboilerplate.core.servlets;
 
-
 import com.day.cq.wcm.api.PageManager;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -45,25 +44,35 @@ public class SearchBookServlet extends SlingAllMethodsServlet {
     private static final Logger LOG = LoggerFactory.getLogger(SearchBookServlet.class);
 
     protected static final String DEFAULT_SELECTOR = "bookFinder";
-
     private static final String bookParentPagePath = "/content/formazioneboilerplate/language-masters/en/books";
-
     private static final String bookContaneirPath = "/jcr:content/root/container/container";
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
         LOG.info("## SearchBookServlet - doPost started ###");
+
         response.setContentType("application/json");
         JsonObject responseResult = new JsonObject();
-        // json array che conterrà json di risposta alla ricerca
-        JsonArray results = new JsonArray();
-        // json che mandiamo in request per la ricerca
-        JsonObject bodyParameter = new JsonObject();
+        JsonObject bodyParameter;
         PrintWriter out = response.getWriter();
 
-        try {
-            //leggiamo carattere per carattere quello che abbiamo nel body della request
+        bodyParameter=bodyRequest(request);
+        //se il bodyParameter ha almeno un elemento al suo interno
+        getSearch(bodyParameter, request, responseResult);
+
+        out.write(responseResult.toString());
+        out.close();
+    }
+
+    /**
+     *
+     * @param request richiesta fatta alla servlet
+     * @return quelo che troviamo nel body della request
+     */
+    private JsonObject bodyRequest ( SlingHttpServletRequest request){
+        JsonObject bodyParameter = new JsonObject();
+        try{
             StringBuilder jsonString = new StringBuilder();
             String line;
             while ((line = request.getReader().readLine()) != null) {
@@ -73,120 +82,126 @@ public class SearchBookServlet extends SlingAllMethodsServlet {
             //inseriamo quello che abbiamo nel body della request in un JsonObject
             bodyParameter = jsonParser.parse(jsonString.toString()).getAsJsonObject();
 
-            //se il bodyParameter ha almeno un elemento al suo interno
-            if(bodyParameter.size()>0 && bodyParameter.has("searchBy")){
-                JsonElement searchByJsonElement = bodyParameter.get("searchBy");
-                if(!searchByJsonElement.isJsonNull()){
-                    String searchBy = searchByJsonElement.getAsString();
-                    if(StringUtils.isNotBlank(searchBy)){
-                        //si separa il body della request-> tipo di ricerca - valore di ricerca
-                        String[] split = searchBy.split("#");
-                        
-                        if(split[0].equals("authorName")|| split[0].equals("category") || split[0].equals("datePublish"))
-                        {
-                            responseResult.addProperty("searchBy", "{"+ split[0] + "}"+" + "+"{" + split[1]+"}");
-                                //qui io sto ricavando attraverso la risorsa la pagina in cui la servlet è stata chiamata
-                                Resource resource = request.getResource();
-                                Page currentPage = resource.adaptTo(Page.class);
-                                // il resourceResolver mi permette di capire se il persorso che io mando alla risolsa esiste o meno
-                                ResourceResolver resourceResolver = resource.getResourceResolver();
-
-                                if(currentPage!= null){
-                                    // adatto la currentPage ad essere di tipo PageManager così da poter utilizzare i suoi metodi
-                                    PageManager pageManager = currentPage.getPageManager();
-                                    if(pageManager != null){
-                                        //il pageManager mi permette di richiamare le pagine a cui sono interessata attraverso il metodo getPage
-                                        Page booksParentPage = pageManager.getPage(bookParentPagePath);
-                                        Iterator<Page> booksChildren = booksParentPage.listChildren();
-                                        // se l'itiratore ha figli entra nel ciclo
-                                        while (booksChildren.hasNext()) {
-                                            // prendi il prossimo, se 0 allora prendi il primo
-                                            Page bookPage = booksChildren.next();
-                                            String bookCurrentPagePath = bookPage.getPath();
-                                            ValueMap properties = bookPage.getProperties();
-
-                                            String searchProperty = properties.get(split[0], String.class);
-                                            if(searchProperty != null && !searchProperty.isEmpty()){
-                                                JsonObject jsonPageResult = new JsonObject();
-                                                switch(split[0]){
-                                                    case "authorName":
-                                                    case "category":
-                                                        if(searchProperty.equals(split[1])) {
-                                                            jsonPageResult = checkParameters(resourceResolver, bookCurrentPagePath, searchProperty, split[1]);
-                                                            if (jsonPageResult.size() > 0) {
-                                                                results.add(jsonPageResult);
-                                                            }
-                                                        }
-                                                        break;
-                                                    case "datePublish":
-                                                        LocalDate dateRequest = LocalDate.parse(split[1]);
-                                                        LocalDate dateBookPublish = LocalDate.parse(searchProperty.split("T")[0]);
-                                                        if(dateBookPublish.isAfter(dateRequest)){
-                                                            jsonPageResult = checkParameters(resourceResolver, bookCurrentPagePath, dateBookPublish.toString(), split[1]);
-                                                            if(jsonPageResult.size()>0){
-                                                                results.add(jsonPageResult);
-                                                            }
-                                                        }
-                                                        LOG.info("LocalDate.parse(searchProperty.split(\"T\")[0]).isBefore(LocalDate.parse(split[1]))");
-                                                        break;
-                                                    default:
-                                                        break;
-                                                }
-                                            }
-                                        }
-                                        responseResult.add("results", results);
-                                    }
-                                }
-                        } else {
-                            responseResult.addProperty("{error", "the value of searchBy parameter in request body is not valid}");
-                            LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is not valid ###");
-                        }
-                    } else {
-                        responseResult.addProperty("{error", "the value of searchBy parameter in request body is empty}");
-                        LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is empty ###");
-                    }
-                } else {
-                    responseResult.addProperty("{error", "the value of searchBy parameter in request body is null}");
-                    LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is null ###");
-                }
-            } else {
-                responseResult.addProperty("{error", "missing searchBy parameter in request body}");
-                LOG.info("## SearchBookServlet -  missing searchBy parameter in request body ###");
-            }
-            out.write(responseResult.toString());
         } catch (IOException e) {
             LOG.error("## SearchBookServlet - doPost failed IOException launched ###", e);
-        } finally{
-            out.close();
         }
-
+        return bodyParameter;
     }
 
+    /**
+     *
+     * @param bodyParameter body della request
+     * @param request richiesta fatta alla servlet
+     * @param responseResult json in response
+     */
+    private void getSearch(JsonObject bodyParameter, SlingHttpServletRequest request, JsonObject responseResult){
+        // json array che conterrà json di risposta alla ricerca
+        JsonArray results = new JsonArray();
+        if(bodyParameter.size()>0 && bodyParameter.has("searchBy")){
+            JsonElement searchByJsonElement = bodyParameter.get("searchBy");
+            if(!searchByJsonElement.isJsonNull()){
+                String searchBy = searchByJsonElement.getAsString();
+                if(StringUtils.isNotBlank(searchBy)){
+                    //si separa il body della request-> tipo di ricerca - valore di ricerca
+                    String[] split = searchBy.split("#");
 
-    private JsonObject checkParameters(ResourceResolver resourceResolver, String bookCurrentPagePath, String propertyPage, String valueSearch) {
+                    if(split[0].equals("authorName")|| split[0].equals("category") || split[0].equals("datePublish"))
+                    {
+                        responseResult.addProperty("searchBy", "{"+ split[0] + "}"+" + "+"{" + split[1]+"}");
+                        //metodo per attivare e la risposta della servlet
+                        getResearch(request, responseResult, results, split[0], split[1]);
+                    } else {
+                        responseResult.addProperty("{error", "the value of searchBy parameter in request body is not valid}");
+                        LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is not valid ###");
+                    }
+                } else {
+                    responseResult.addProperty("{error", "the value of searchBy parameter in request body is empty}");
+                    LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is empty ###");
+                }
+            } else {
+                responseResult.addProperty("{error", "the value of searchBy parameter in request body is null}");
+                LOG.info("## SearchBookServlet -  the value of searchBy parameter in request body is null ###");
+            }
+        } else {
+            responseResult.addProperty("{error", "missing searchBy parameter in request body}");
+            LOG.info("## SearchBookServlet -  missing searchBy parameter in request body ###");
+        }
+    }
+
+    private void getResearch(SlingHttpServletRequest request, JsonObject responseResult, JsonArray results, String split0, String split1){
+        //qui io sto ricavando attraverso la risorsa la pagina in cui la servlet è stata chiamata
+        Resource resource = request.getResource();
+        Page currentPage = resource.adaptTo(Page.class);
+        // il resourceResolver mi permette di capire se il persorso che io mando alla risolsa esiste o meno
+        ResourceResolver resourceResolver = resource.getResourceResolver();
+        if(currentPage!= null){
+            // adatto la currentPage ad essere di tipo PageManager così da poter utilizzare i suoi metodi
+            PageManager pageManager = currentPage.getPageManager();
+            if(pageManager != null){
+                //il pageManager mi permette di richiamare le pagine a cui sono interessata attraverso il metodo getPage
+                Page booksParentPage = pageManager.getPage(bookParentPagePath);
+                Iterator<Page> booksChildren = booksParentPage.listChildren();
+                // se l'itiratore ha figli entra nel ciclo
+                while (booksChildren.hasNext()) {
+                    // prendi il prossimo, se 0 allora prendi il primo
+                    Page bookPage = booksChildren.next();
+                    String bookCurrentPagePath = bookPage.getPath();
+                    ValueMap properties = bookPage.getProperties();
+
+                    String searchProperty = properties.get(split0, String.class);
+                    if(searchProperty != null && !searchProperty.isEmpty()){
+                        JsonObject jsonPageResult = new JsonObject();
+                        switch(split0){
+                            case "authorName":
+                            case "category":
+                                if(searchProperty.equals(split1)) {
+                                    jsonPageResult = checkParameters(resourceResolver, bookCurrentPagePath);
+                                    if (jsonPageResult.size() > 0) {
+                                        results.add(jsonPageResult);
+                                    }
+                                }
+                                break;
+                            case "datePublish":
+                                LocalDate dateRequest = LocalDate.parse(split1);
+                                LocalDate dateBookPublish = LocalDate.parse(searchProperty.split("T")[0]);
+                                if(dateBookPublish.isAfter(dateRequest)){
+                                    jsonPageResult = checkParameters(resourceResolver, bookCurrentPagePath);
+                                    if(jsonPageResult.size()>0){
+                                        results.add(jsonPageResult);
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                responseResult.add("results", results);
+            }
+        }
+    }
+
+    private JsonObject checkParameters(ResourceResolver resourceResolver, String bookCurrentPagePath) {
         JsonObject json = new JsonObject();
         Resource resource = resourceResolver.getResource(bookCurrentPagePath + bookContaneirPath);
         if(resource != null){
 
-            // cerco il nodo title, figlio del nodo container, e vedo a cosa corrisponde nella valueMap e lo salvo nella property nel json
-            Resource title = resource.getChild("title");
-            if(title != null){
-                String bookTitle = title.getValueMap().get("jcr:title", String.class);
-                json.addProperty("bookName", bookTitle);
-            }
-
-            // cerco il resourceType di tipo text e vedo a cosa corrisponde nella valueMap e lo salvo nella property nel json
-            Resource text = resource.getChild("text");
-            if(text != null){
-                String bookDescription = text.getValueMap().get("text", String.class);
-                json.addProperty("bookDescription", bookDescription);
-            }
-
-            // prendo il path del resourse della pagina e lo salvo come property nel json
+            //ottengo le informazioni che voglio vedere nel json delle response
+            getProperty(json,resource, "title", "jcr:title", "bookName");
+            getProperty(json, resource, "text", "text", "bookDescription");
             String bookPagePath = resource.getPath();
             json.addProperty("bookPagePath", bookPagePath);
         }
         return json;
     }
 
+    private void getProperty(JsonObject json, Resource resource, String searchValue, String nameProperty, String bookInfomation) {
+        Resource propertyPage = resource.getChild(searchValue);
+        if(propertyPage != null){
+            String bookInfo = propertyPage.getValueMap().get(nameProperty, String.class);
+            if(bookInfo != null){
+                json.addProperty(bookInfomation, bookInfo);
+            }
+        }
+    }
 }
