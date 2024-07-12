@@ -10,11 +10,15 @@ import '../components/**/*.js';
 import './js/**/*.js';
 import buttonSimple from "./js/buttonSimple-component/buttonSimple-ServletTrigger";
 import bannerDarkLight from "./js/bannerDark-Light/bannerDarkLightGeneration";
+import searchField from "./js/spaHeroBanner-component/heroBanner-ServletTrigger";
+import buttonBackToTop from "./js/buttonBackToTop-component/buttonBackToTop";
 
 
 window.onload=function (){
     buttonSimple();
     bannerDarkLight();
+    searchField();
+    buttonBackToTop();
 }
 
 
