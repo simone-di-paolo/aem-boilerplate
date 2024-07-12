@@ -348,6 +348,17 @@
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1719934235693>
+                <policy_1720725989789
+                    jcr:description="In questa policy andiamo a definire i componenti che possono essere aggiunti nel container del tamplate SPA Page Template."
+                    jcr:lastModified="{Date}2024-07-11T21:29:05.458+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="SPA Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/formazioneboilerplate/components/spaFooter,/apps/formazioneboilerplate/components/spaHeader,/apps/formazioneboilerplate/components/spaHeroBannerComponent,/apps/formazioneboilerplate/components/spaServiceComponent]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>xsf
+                </policy_1720725989789>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650

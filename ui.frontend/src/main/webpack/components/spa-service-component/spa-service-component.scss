@@ -1,0 +1,86 @@
+.card-service-component{
+  background-color: white;
+  padding: 12rem 0;
+
+  .card-service-intro-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .cards-service-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 16px;
+
+    .card-service {
+      background-color: white;
+      border-radius: 10px;
+      max-width: 255px;
+      height: 370px;
+      margin-left: 32px;
+      margin-right: 32px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+      color: #a09e9c;
+
+      .card-service-header {
+        height: 150px;
+        width: 100%;
+        margin: 0;
+        top: 0;
+
+        .card-icon {
+          padding-left: 3rem;
+          height: inherit;
+          object-fit: cover;
+          margin: 0;
+          top: 0;
+          border-radius: 12px;
+        }
+      }
+
+      .card-service-body {
+        height: 130px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .card-service-title {
+          line-height: 1.1;
+          text-align: center;
+        }
+
+        .card-service-description {
+          text-align: center;
+          width: 95%;
+          line-height: 1.8;
+          margin: 5px;
+          padding: 0;
+        }
+      }
+
+    }
+
+    .card-service:hover{
+      background-color: #fe7555;
+      cursor: pointer;
+      color:white;
+    }
+  }
+}
+
+
+
