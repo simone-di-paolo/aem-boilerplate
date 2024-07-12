@@ -1,0 +1,25 @@
+<div class="card-service-component" data-sly-use.model="com.formazioneboilerplate.core.models.CardComponent">
+    <div class="dialog-card-component" id="work">
+        <div class="card-service-intro-container">
+            <h2 class="card-intro-title">
+                ${properties.cardComponentTitle}
+            </h2>
+            <p class="card-intro-subtitle">
+                ${properties.cardComponentDescription}
+            </p>
+        </div>
+        <div class="cards-service-container" data-sly-list.card="${model.elementsCards}">
+            <div class="card-service md-card">
+                <div class="card-service-header">
+                    <img class="card-icon"
+                         src="${card.image}"
+                         alt="Icon">
+                </div>
+                <div class="card-service-body">
+                    <h3 class="card-service-title">${card.cardTitle}</h3>
+                    <p class="card-service-description">${card.cardDescription}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
