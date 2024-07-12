@@ -17,4 +17,11 @@ public @interface EndPointConfigurations {
             type= AttributeType.STRING
     )
     String getEndPoint();
+
+    @AttributeDefinition(
+            name = "Configuration URL endPoint for the SPA Explore",
+            description = "This field will contains the endPoint for the SPA Explore",
+            type= AttributeType.STRING
+    )
+    String getEndPointExplore();
 }

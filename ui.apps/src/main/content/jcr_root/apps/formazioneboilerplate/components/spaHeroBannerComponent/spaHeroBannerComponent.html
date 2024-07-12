@@ -1,0 +1,46 @@
+<div class="spa-hero-banner" data-sly-use.modelSearchFields="com.formazioneboilerplate.core.models.HeroBannerSearchModel">
+    <div class="spa-hero-banner-background" id="home">
+        <img src="${properties.backgroundImage @context='uri'}" alt="Image">
+    </div>
+    <div class="spa-hero-banner-component">
+        <div class="spa-hero-banner-text">
+            <h2>${properties.title @context='html'}</h2>
+            <p>${properties.subtitle @context='html'}</p>
+        </div>
+        <div class="spa-hero-banner-search">
+            <div class="spa-hero-banner-search-box">
+                <div class="spa-hero-banner-form"><!-- si comporta come una select che prende le info da una osgi -->
+                    <h3>What?</h3>
+                    <label>
+                        <select id="typeLocal">
+                            <option value=""> Choose an option </option>
+                            <sly data-sly-list="${modelSearchFields.searchFields}">
+                                <option value="${item}">${item}</option>
+                            </sly>
+                        </select>
+                    </label>
+                    <img class="icon" src="https://cdn.icon-icons.com/icons2/1863/PNG/512/format-list-bulleted_119102.png" alt="icon"/>
+                </div>
+                <div class="spa-hero-banner-form"><!-- è una select che la cui scelta si ottiene da un GET -->
+                    <h3>Location</h3>
+                    <label>
+                        <select id="city">
+                            <option value=""> Choose a city </option>
+                            <sly data-sly-list="${modelSearchFields.cities}">
+                                <option value="${item}">${item}</option>
+                            </sly>
+                        </select>
+                    </label>
+                    <img class="icon" src="data:image/png;base64,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" alt="icon"/>
+                </div>
+            </div>
+            <div class="spa-hero-banner-search-btn">
+                <button type="button" class="spa-hero-banner-btn">Search</button>
+            </div>
+        </div>
+
+        <div id="container">
+
+        </div>
+    </div>
+</div>

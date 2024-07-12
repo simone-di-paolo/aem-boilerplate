@@ -17,15 +17,22 @@ public class EndPointConfigurationsServiceImpl implements EndPointConfigurations
     @Reference
     protected Connector connector;
     private String endPoint;
+    private String endPointExplore;
 
     @Activate
     public void activate(EndPointConfigurations configuration){
         endPoint = configuration.getEndPoint();
+        endPointExplore=configuration.getEndPointExplore();
     }
 
     @Override
     public String getEndPoint() {
         return endPoint;
+    }
+
+    @Override
+    public String getEndPointExplore() {
+        return endPointExplore;
     }
 
     @Override
