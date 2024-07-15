@@ -1,0 +1,116 @@
+.spa-container{
+  background-color: white;
+  padding-top: 5rem;
+
+  .spa-card-intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    .spa-card-title {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 32px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .spa-card-subtitle {
+      font-weight: 200;
+    }
+  }
+
+  .spa-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .spa-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f6f7f8;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      height: 300px;
+      margin: 2rem 3rem;
+
+      .spa-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e1e5eb;
+
+        .card-title {
+          text-align: center;
+        }
+
+        .spa-body-card{
+          display: flex;
+          gap: 30px;
+          flex-wrap: wrap;
+          margin-left: 25px;
+
+          .card-review{
+            background: #70a9ff;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            border-radius: 8px;
+          }
+
+          .card-price{
+            span{
+              color:red;
+            }
+          }
+        }
+
+        .spa-card-address{
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+          margin-top: 2rem;
+          margin-left: 25px;
+          .spa-card-img{
+            .card-img {
+              width: 35px;
+              height: inherit;
+              margin: 0;
+              top: 0;
+              border-radius: 12px 12px 0 0;
+            }
+          }
+          .card-address{
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+
+      .spa-card-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: end;
+        margin-top: 10px;
+
+        .spa-card-opening{
+          color: green;
+        }
+        .spa-card-closing{
+          color: red;
+        }
+      }
+
+
+    }
+  }
+}

@@ -1,9 +1,12 @@
 package com.formazioneboilerplate.core.servlets.connector;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import org.apache.commons.lang.CharEncoding;
 import org.apache.http.HttpEntity;
+import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -37,11 +40,28 @@ public JsonObject executeGet(String endPoint, Map<String, String> headers, Map<S
 
         jsonResponse = jsonParser.parse(stringResponse).getAsJsonObject();
     }
-    catch (ClientProtocolException e) {
-        throw new RuntimeException(e);
-    } catch (IOException e) {
+    catch (IOException e) {
         throw new RuntimeException(e);
     }
     return jsonResponse;
+    }
+
+    @Override
+    public JsonArray executeGetArray(String endPoint, Map<String, String> headers, Map<String, String> params) throws IOException {
+        JsonArray jsonResponse = new JsonArray();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try{
+            HttpGet httpGet = new HttpGet(endPoint);
+            CloseableHttpResponse response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            String stringResponse = EntityUtils.toString(entity, CharEncoding.UTF_8);
+            JsonParser jsonParser = new JsonParser();
+
+            jsonResponse = jsonParser.parse(stringResponse).getAsJsonArray();
+
+        } catch (IOException | JsonSyntaxException | ParseException e) {
+            throw new RuntimeException(e);
+        }
+        return jsonResponse;
     }
 }
