@@ -1,6 +1,6 @@
 .card-service-component{
   background-color: white;
-  padding: 12rem 0;
+  padding: 12rem 0 5rem 0;
 
   .card-service-intro-container{
     display: flex;
@@ -8,6 +8,16 @@
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+    .spa-card-title {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 32px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .spa-card-subtitle {
+      font-weight: 200;
+    }
   }
   .cards-service-container {
     display: flex;

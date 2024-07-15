@@ -5,7 +5,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 742px;
-  width: 100%;
+  width: 98.9%;
 
   .spa-hero-banner-background{
     position:absolute;
@@ -29,7 +29,7 @@
         margin-left: 4rem;
         text-transform: uppercase;
         font-weight: 900;
-        font-size: 55px;
+        font-size: 50px;
         letter-spacing: 2.4px;
         line-height: 1.4;
         text-align: center;
@@ -65,8 +65,25 @@
         height: 70px;
         box-sizing: border-box;
 
-        .spa-hero-banner-form {
+        .spa-hero-banner-form-1 {
           border-right: 1px solid #edeff1;
+          position: relative;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          width: 50%;
+          padding: 0 30px;
+          justify-content: space-between;
+        }
+        select{
+          border:none;
+          font-size: 0.9rem;
+        }
+        .icon {
+          width: 25px;
+        }
+
+        .spa-hero-banner-form-2 {
           position: relative;
           display: flex;
           align-items: center;
@@ -94,13 +111,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 14px;
+          font-size: 17px;
+          font-weight: 500;
           background: #ff545a;
           color: #fff;
           width: 170px;
           height: 70px;
           text-transform: capitalize;
           border-radius: 10px;
+          border: none;
         }
       }
     }
