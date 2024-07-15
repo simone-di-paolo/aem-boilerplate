@@ -1,0 +1,38 @@
+<div class="spa-container" id="explore" data-sly-use.modelSpaExplore="com.formazioneboilerplate.core.models.SpaExploreModel">
+    <div class="spa-card-intro-container">
+        <h2 class="spa-card-title">
+            ${properties.exploreComponentTitle}
+        </h2>
+        <p class="spa-card-subtitle">
+            ${properties.exploreComponentSubtitle}
+        </p>
+    </div>
+    <div class="spa-cards-container" data-sly-set.cards="${modelSpaExplore.information}" data-sly-list.card="${cards.activities}">
+        <div class="spa-card md-card">
+            <div class="spa-body">
+                <h3 class="card-title">${card.name}</h3>
+                <div class="spa-body-card">
+                    <span class="card-review">${card.number_of_reviews}</span>
+                    <span class="card-rating">
+                        ${card.ratings} ${properties.ratingLabel}
+                    </span>
+                    <span class="card-price">
+                        ${properties.priceLabel} <span>${card.price_range}</span>
+                    </span>
+                    <div class="card-type">${card.type}</div>
+                </div>
+                <div class="spa-card-address">
+                    <div class="spa-card-img">
+                        <img class="card-img" src="https://freesvg.org/img/Map-Pin.png" alt="Image 1">
+                    </div>
+                    <div class="card-address">
+                        ${card.address}
+                    </div>
+                </div>
+            </div>
+            <div class="spa-card-footer" data-sly-use.modelOpening="${'com.formazioneboilerplate.core.models.CheckActivityIsOpenModel' @openingHours=card.availability}">
+                <div class="check-activity">${modelOpening.open ? properties.openNowLabel : properties.closedNowLabel}</div>
+            </div>
+        </div>
+    </div>
+</div>
