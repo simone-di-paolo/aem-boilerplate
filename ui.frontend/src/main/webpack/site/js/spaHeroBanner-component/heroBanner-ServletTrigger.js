@@ -1,8 +1,6 @@
 export default function searchField () {
 
     function activeServlet() {
-
-
         let typeLocal= document.querySelector("#typeLocal");
         let cities=document.querySelector("#city");
         let type = typeLocal.options[typeLocal.selectedIndex].text;

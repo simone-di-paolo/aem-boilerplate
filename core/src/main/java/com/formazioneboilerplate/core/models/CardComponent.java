@@ -25,10 +25,12 @@ public interface CardComponent {
         @Inject
         String getCardDescription();
 
+        /*
         @Inject
         String getButtonLabel();
 
         @Inject
         String getButtonLink();
+        */
     }
 }

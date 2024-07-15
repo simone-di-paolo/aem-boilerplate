@@ -1,14 +1,10 @@
 package com.formazioneboilerplate.core.servlets;
 
-import com.formazioneboilerplate.core.bean.Cities;
-import com.formazioneboilerplate.core.bean.City;
-import com.formazioneboilerplate.core.bean.Local;
 import com.formazioneboilerplate.core.service.EndPointConfigurationsService;
 import com.formazioneboilerplate.core.servlets.connector.Connector;
 import com.google.gson.*;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.request.RequestParameterMap;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -16,8 +12,6 @@ import org.osgi.service.component.annotations.Reference;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 @Component(name="GET EndPoint Servlet",
         service=Servlet.class,

@@ -1,10 +1,9 @@
-
-
 .spa-button {
   margin-right: 2rem;
   display: flex;
   align-content: center;
   justify-content: center;
+  background-color: white;
 
 
   #buttonBackToTop {
@@ -26,5 +25,6 @@
     transform: rotate(90deg);
     transition: .5s;
     z-index: 2;
+    padding-bottom: 40px;
   }
 }
