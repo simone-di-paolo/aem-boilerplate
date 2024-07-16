@@ -40,17 +40,22 @@ export default function searchField () {
             return;
         }
 
-        data.forEach(item => {
-            const div = $('<div class="card-hero"></div>');
-            const name = $('<h2></h2>').text(item.name);
-            const address = $('<p></p>').text(item.address);
-            const phone = $('<p class="phone"></p>').text(item.phoneNumber);
+        if (data.length === 0) {
+            const noResultsCard = $('<div class="no-results-card">No results found</div>');
+            container.append(noResultsCard);
+        } else {
+            data.forEach(item => {
+                const div = $('<div class="card-hero"></div>');
+                const name = $('<h2></h2>').text(item.name);
+                const address = $('<p></p>').text(item.address);
+                const phone = $('<p class="phone"></p>').text(item.phoneNumber);
 
-            div.append(name);
-            div.append(address);
-            div.append(phone);
-            container.append(div);
-        });
+                div.append(name);
+                div.append(address);
+                div.append(phone);
+                container.append(div);
+            });
+        }
     }
 }
 
