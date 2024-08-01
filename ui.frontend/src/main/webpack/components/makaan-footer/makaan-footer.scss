@@ -1,0 +1,41 @@
+.makaan-footer {
+  background-color: #0E2E50;;
+  display: flex;
+  flex-direction: column;
+  //margin-top: 4rem;
+
+  .menu-makaan-footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+    padding: 40px 0;
+
+    .menu-makaan {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+
+    a {
+      text-decoration: none;
+      color: #859098;
+      padding: 0 1rem 0 1rem;
+      transition: transform 0.3s ease;
+    }
+    a:hover{
+      transform: scale(1.1);
+    }
+  }
+  .copyright-footer{
+    color:#859098;
+    margin-left: 20px;
+    padding: 40px 0;
+    border-top: 1px solid #e1e5eb;
+  }
+
+}
