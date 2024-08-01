@@ -1,0 +1,10 @@
+<div data-sly-use.interface="com.formazioneboilerplate.core.models.MakaanHeader">
+    <div class="makaan-header" id="header">
+        <div class="logo" data-sly-use.model="com.formazioneboilerplate.core.models.MakaanPageModel">
+            <a href="#${item.headerLink}"><img src="${model.logoImage}" alt="Logo Image" class="logo-image"></a>
+        </div>
+        <div class="menu" data-sly-list="${interface.menuItems}">
+            <a href="#${item.headerLink}"> ${item.headerLinkLabel}</a>
+        </div>
+    </div>
+</div>
