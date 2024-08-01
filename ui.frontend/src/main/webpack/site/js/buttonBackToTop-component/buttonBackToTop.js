@@ -18,8 +18,10 @@ export default function buttonBackToTop () {
         }
     }
 
-    window.addEventListener('scroll',scrollFunction);
+    if (mybutton) {
+        window.addEventListener('scroll',scrollFunction);
 
-    mybutton.addEventListener('click', scrollToTop);
+        mybutton.addEventListener('click', scrollToTop);
+    }
 }
 

@@ -1,0 +1,20 @@
+<div id="home" class="makaan-hero-banner" data-sly-use.interface="com.formazioneboilerplate.core.models.MakaanHeroBannerComponent">
+    <div class="makaan-hero-banner-text">
+        <h2>${properties.title @context='html'}</h2>
+        <p>${properties.subtitle @context='html'}</p>
+    </div>
+
+    <div class="nav">
+        <a class="prev">❮</a>
+        <a class="next">❯</a>
+    </div>
+
+    <div class="makaan-hero-banner-img" data-sly-list="${interface.imagesBanners}" >
+        <div class="carousel-item ${itemList.index == 0 ? 'active' : ''}">
+            <img class="banner-image" src="${item.backgroundImage @context='uri'}" alt="Image">
+        </div>
+    </div>
+</div>
+
+
+
