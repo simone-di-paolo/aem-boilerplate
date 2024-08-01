@@ -18,11 +18,13 @@ public class EndPointConfigurationsServiceImpl implements EndPointConfigurations
     protected Connector connector;
     private String endPoint;
     private String endPointExplore;
+    private String endPointSearch;
 
     @Activate
     public void activate(EndPointConfigurations configuration){
         endPoint = configuration.getEndPoint();
         endPointExplore=configuration.getEndPointExplore();
+        endPointSearch=configuration.getEndPointSearch();
     }
 
     @Override
@@ -33,6 +35,11 @@ public class EndPointConfigurationsServiceImpl implements EndPointConfigurations
     @Override
     public String getEndPointExplore() {
         return endPointExplore;
+    }
+
+    @Override
+    public String getEndPointSearch() {
+        return endPointSearch;
     }
 
     @Override

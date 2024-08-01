@@ -24,4 +24,10 @@ public @interface EndPointConfigurations {
             type= AttributeType.STRING
     )
     String getEndPointExplore();
+    @AttributeDefinition(
+            name = "Configuration URL endPoint for the Makaan Search",
+            description = "This field will contains the endPoint for the Makaan Search",
+            type= AttributeType.STRING
+    )
+    String getEndPointSearch();
 }
