@@ -1,0 +1,16 @@
+<div class="makaan-footer"  data-sly-use.interface="com.formazioneboilerplate.core.models.MakaanFooter">
+    <div data-sly-use.model="com.formazioneboilerplate.core.models.MakaanPageModel">
+        <div class="menu-makaan-footer">
+            <div class="logo">
+                <a href="#"><img src="${model.logoImage}" alt="Logo Image" class="logo-image"></a>
+            </div>
+            <div class="menu-makaan" data-sly-list="${interface.menuItems}">
+                <a href="#${item.footerLink}"> ${item.footerLinkLabel}</a>
+            </div>
+        </div>
+        <div class="copyright-footer">
+            <p>© ${properties.copyrightLabel} </p>
+        </div>
+    </div>
+</div>
+
