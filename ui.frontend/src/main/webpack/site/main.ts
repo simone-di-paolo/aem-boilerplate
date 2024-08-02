@@ -13,6 +13,7 @@ import bannerDarkLight from "./js/bannerDark-Light/bannerDarkLightGeneration";
 import searchField from "./js/spaHeroBanner-component/heroBanner-ServletTrigger";
 import buttonBackToTop from "./js/buttonBackToTop-component/buttonBackToTop";
 import CheckActivityIsOpen from "./js/spaExplore-component/spaExplore";
+import indexSearchField from "./js/indexSearch-component/indexSearch-ServletTrigger";
 
 
 window.onload=function (){
@@ -21,6 +22,7 @@ window.onload=function (){
     searchField();
     buttonBackToTop();
     CheckActivityIsOpen();
+    indexSearchField()
 }
 
 

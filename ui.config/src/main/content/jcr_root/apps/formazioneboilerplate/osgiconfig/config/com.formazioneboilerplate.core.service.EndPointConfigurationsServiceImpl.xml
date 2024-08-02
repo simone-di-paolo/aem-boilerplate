@@ -3,4 +3,5 @@
           jcr:primaryType="sling:OsgiConfig"
           getEndPoint="http://localhost:81/json/cities.json"
           getEndPointExplore="http://localhost:81/json/availability-list.json"
+          getEndPointSearch="http://localhost:81/json/properties.json"
 />
