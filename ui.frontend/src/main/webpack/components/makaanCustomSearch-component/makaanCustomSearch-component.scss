@@ -1,0 +1,115 @@
+.makaan-custom-search-banner {
+  padding-top: 2rem;
+  color: white;
+  background-color: #00B98E;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .makaan-custom-search {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+
+    .makaan-custom-form {
+      background-color: white;
+      position: relative;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      width: 50%;
+      padding: 0 30px;
+      justify-content: space-between;
+      border-radius: 5px;
+      border: none;
+
+      #searchKeywordIndex {
+        border: none;
+        appearance: none;
+      }
+    }
+
+    .makaan-custom-search-btn {
+      width: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+
+      .makaan-custom-btn {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-weight: 500;
+        background: #0E2E50;
+        color: #fff;
+        width: 170px;
+        height: 70px;
+        text-transform: capitalize;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+  }
+
+
+  #container-custom {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .property-card
+  {
+    display: flex;
+    flex-direction: row;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    color: #0E2E50;
+    margin:1rem 2rem;
+    gap: 4rem;
+
+    img{
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+      margin: 0;
+      top: 0;
+      border-radius: 8px;
+    }
+
+    .content-text{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .no-results {
+    background-color: #f9f9f9;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
