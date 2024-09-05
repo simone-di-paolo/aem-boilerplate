@@ -15,6 +15,7 @@ import buttonBackToTop from "./js/buttonBackToTop-component/buttonBackToTop";
 import CheckActivityIsOpen from "./js/spaExplore-component/spaExplore";
 import indexSearchField from "./js/indexSearch-component/indexSearch-ServletTrigger";
 import makaanSearchField from "./js/makaanSearch-component/makaanSearch-ServletTrigger";
+import exampleComponent from "./js/exampleComponent/exampleComponent";
 
 
 window.onload=function (){
@@ -25,6 +26,7 @@ window.onload=function (){
     CheckActivityIsOpen();
     indexSearchField();
     makaanSearchField();
+    exampleComponent()
 }
 
 

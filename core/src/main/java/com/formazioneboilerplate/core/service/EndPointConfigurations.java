@@ -30,4 +30,11 @@ public @interface EndPointConfigurations {
             type= AttributeType.STRING
     )
     String getEndPointSearch();
+
+    @AttributeDefinition(
+            name = "Configuration URL endPoint",
+            description = "This field will contains the Example endPoint",
+            type= AttributeType.STRING
+    )
+    String getEndPointExample();
 }

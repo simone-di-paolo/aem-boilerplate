@@ -19,12 +19,14 @@ public class EndPointConfigurationsServiceImpl implements EndPointConfigurations
     private String endPoint;
     private String endPointExplore;
     private String endPointSearch;
+    private String endPointExample;
 
     @Activate
     public void activate(EndPointConfigurations configuration){
         endPoint = configuration.getEndPoint();
         endPointExplore=configuration.getEndPointExplore();
         endPointSearch=configuration.getEndPointSearch();
+        endPointExample=configuration.getEndPointExample();
     }
 
     @Override
@@ -40,6 +42,11 @@ public class EndPointConfigurationsServiceImpl implements EndPointConfigurations
     @Override
     public String getEndPointSearch() {
         return endPointSearch;
+    }
+
+    @Override
+    public String getEndPointExample() {
+        return endPointExample;
     }
 
     @Override

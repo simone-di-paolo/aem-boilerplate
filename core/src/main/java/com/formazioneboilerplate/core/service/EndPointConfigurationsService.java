@@ -7,4 +7,5 @@ public interface EndPointConfigurationsService {
     String getEndPointExplore();
     String getEndPointSearch();
     JsonObject getResponseFromEndPoint(String endPoint);
+    String getEndPointExample();
 }

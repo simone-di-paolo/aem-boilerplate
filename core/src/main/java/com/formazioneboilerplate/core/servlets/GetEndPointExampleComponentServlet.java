@@ -15,15 +15,15 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
-@Component(name="GET EndPoint Search Servlet",
+@Component(name="Get EndPoint Example Componet Servlet",
         service=Servlet.class,
-        property={"service.description=Get EndPoint Search Servlet Description",
-                "sling.servlet.paths=/bin/GetEndPointSearchServlet",
+        property={"service.description=Get EndPoint Example Componet Servlet Description",
+                "sling.servlet.paths=/bin/GetEndPointExampleComponetServlet",
                 "sling.servlet.methods=GET"}
 )
 
 
-public class GetEndPointSearchServlet extends SlingSafeMethodsServlet {
+public class GetEndPointExampleComponentServlet extends SlingSafeMethodsServlet {
     @Reference
     private Connector connector;
 
@@ -36,29 +36,16 @@ public class GetEndPointSearchServlet extends SlingSafeMethodsServlet {
 
         JsonArray result = new JsonArray();
 
-        String type = request.getParameter("type");
-        String locationParam = request.getParameter("location");
+        JsonObject jsonObject = connector.executeGet(endPointConfigurationsService.getEndPointExample(), null, null);
 
-        JsonObject jsonObject = connector.executeGet(endPointConfigurationsService.getEndPointSearch(), null, null);
+        JsonElement films = jsonObject.get("films");
+        JsonArray asJsonArray = films.getAsJsonArray();
 
-        JsonElement properties = jsonObject.get("properties");
-        JsonArray asJsonArray = properties.getAsJsonArray();
         for (JsonElement c : asJsonArray) {
             JsonObject cObj = c.getAsJsonObject();
-            if(cObj.get("location").getAsString().equals(locationParam)){
-                switch (type) {
-                    case "For Rent":
-                        result.add(cObj);
-                        break;
-                    case "For Sell": //JsonElement jsonElement = cObj;
-                        /*if (jsonElement != null) {
-                            result = cObj.getAsJsonArray();
-                        }*/
-                        result.add(cObj);
-                        break;
-                }
-            }
+            result.add(cObj);
         }
+
         response.setContentType("application/json; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(result.toString());
