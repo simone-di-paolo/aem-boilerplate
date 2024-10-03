@@ -1,0 +1,43 @@
+.main-banner-container {
+    background-color: white !important;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+.text-banner-container {
+
+}
+.title-text-banner {
+
+}
+.special-title-text-banner {
+
+}
+.text-banner {
+
+}
+.button-getStarted {
+
+}
+.image-banner-container {
+
+}
+.carousel-container {
+
+}
+.carousel-stage {
+
+}
+.image-stage{
+    width: 3840px;
+}
+.image-item {
+    width: 640px;
+}
+.owl-carousel-item {
+
+}
+.img-fluid {
+
+}

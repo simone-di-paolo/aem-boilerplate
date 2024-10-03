@@ -1,0 +1,45 @@
+
+<section class="banner-section">
+    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+        <div class="col-md-6 p-5 mt-lg-5">
+            <h1 class="display-5 animated fadeIn mb-4">
+                ${properties.normalTitleTextBanner1}
+                <span class="text-primary">${properties.specialTitleTextBanner}</span>
+                ${properties.normalTitleTextBanner2}
+            </h1>
+            <p class="animated fadeIn mb-4 pb-2">
+                ${properties.textBanner}
+            </p>
+            <a href="${properties.linkButton}"
+               class="btn btn-primary py-3 px-5 me-3 animated fadeIn">${properties.textButton}</a>
+        </div>
+        <div class="col-md-6 animated fadeIn">
+            <div class="owl-carousel header-carousel owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage"
+                         style="width: 3840px;">
+                        <div class="owl-item" style="width: 640px;">
+                            <sly data-sly-list.item="${resource.listChildren}">
+                                <sly data-sly-test="${item.name == 'carouselBanner'}">
+                                    <sly data-sly-list.subitem="${item.listChildren}">
+                                        <div class="owl-carousel-item hidden" id="carousel-item">
+                                            <img class="img-fluid" src="${subitem.imageCarousel}" alt="immagine carosello">
+                                        </div>
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <button class="owl-prev" aria-label="Previous" onclick="viewPreviousImage()" id="prev-button" >
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="owl-next" aria-label="Next" onclick="viewNextImage()" id="next-button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+<section class="banner-section">
+    <div class="main-banner-container">
+        <div class="text-banner-container">
+            <h1 class="title-text-banner">
+                ${properties.normalTitleTextBanner1}
+                <span class="special-title-text-banner">${properties.specialTitleTextBanner}</span>
+                ${properties.normalTitleTextBanner2}
+            </h1>
+            <p class="text-banner">
+                ${properties.textBanner}
+            </p>
+            <a href="${properties.linkButton}"
+               class="button-getStarted">${properties.textButton}</a>
+        </div>
+        <div class="image-banner-container">
+            <div class="carousel-container">
+                <div class="carousel-stage">
+                    <div class="image-stage">
+                        <div class="image-item">
+                            <sly data-sly-list.item="${resource.listChildren}">
+                                <sly data-sly-test="${item.name == 'carouselBanner'}">
+                                    <sly data-sly-list.subitem="${item.listChildren}">
+                                        <div class="owl-carousel-item hidden" id="carousel-item">
+                                            <img class="img-fluid" src="${subitem.imageCarousel}" alt="immagine carosello">
+                                        </div>
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <button class="owl-prev" aria-label="Previous" onclick="viewPreviousImage()" id="prev-button" >
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="owl-next" aria-label="Next" onclick="viewNextImage()" id="next-button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
