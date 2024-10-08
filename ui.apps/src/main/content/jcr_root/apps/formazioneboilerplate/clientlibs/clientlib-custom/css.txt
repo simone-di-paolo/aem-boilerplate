@@ -16,3 +16,4 @@
 
 css/pianeti.css
 css/banner.css
+css/bannerB.css

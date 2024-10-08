@@ -2,15 +2,13 @@
     <div class="main-banner-container">
         <div class="text-banner-container">
             <h1 class="title-text-banner">
-                ${properties.normalTitleTextBanner1}
-                <span class="special-title-text-banner">${properties.specialTitleTextBanner}</span>
-                ${properties.normalTitleTextBanner2}
+                ${properties.titleTextBanner @ context='html'}
             </h1>
             <p class="text-banner">
                 ${properties.textBanner}
             </p>
             <a href="${properties.linkButton}"
-               class="button-getStarted">${properties.textButton}</a>
+               class="button-getStarted" target="${properties.targetButton}">${properties.textButton}</a>
         </div>
         <div class="image-banner-container">
             <div class="carousel-container">
@@ -20,8 +18,8 @@
                             <sly data-sly-list.item="${resource.listChildren}">
                                 <sly data-sly-test="${item.name == 'carouselBanner'}">
                                     <sly data-sly-list.subitem="${item.listChildren}">
-                                        <div class="owl-carousel-item hidden" id="carousel-item">
-                                            <img class="img-fluid" src="${subitem.imageCarousel}" alt="immagine carosello">
+                                        <div class="carousel-item hidden" id="carousel-item">
+                                            <img class="img-carousel" src="${subitem.imageCarousel}" alt="${subitem.altImg}">
                                         </div>
                                     </sly>
                                 </sly>
@@ -29,12 +27,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="owl-nav">
-                    <button class="owl-prev" aria-label="Previous" onclick="viewPreviousImage()" id="prev-button" >
-                        <i class="bi bi-chevron-left"></i>
+                <div class="carousel-nav">
+                    <button class="previous-button" aria-label="Previous" id="previous-button" >
+                        <i class="arrow-left"></i>
                     </button>
-                    <button class="owl-next" aria-label="Next" onclick="viewNextImage()" id="next-button">
-                        <i class="bi bi-chevron-right"></i>
+                    <button class="next-button" aria-label="Next" id="next-button">
+                        <i class="arrow-right"></i>
                     </button>
                 </div>
             </div>

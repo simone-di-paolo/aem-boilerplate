@@ -1,63 +1,50 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    //per come ho scritto il codice html negli sly, mi accorgo di aver creato un multifield dal <div class='owl-carousel-item' e non dall'<img> in esso contenuto
-    // Perciò provo a modificare la fonte da cui prendo gli Elementi per l'array immaginiCarosello.
-    // Quindi inserisco nel metodo la classe del div:
-    const immaginiCarosello = document.getElementsByClassName('owl-carousel-item');
-    let indiceImmagine = 0;
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
 
-    // Elimino la costante output: invece che iniettare codice nell'HTML provo ad aggiungere una funzione per MOSTRARE l'immagine
-    function mostraImmagine(indice) {
-        // aggiungo quindi delle classi CSS al div di riferimento che richiamerò per MOSTRARE o NASCONDERE quel div:
-        for (let i = 0; i < immaginiCarosello.length; i++) {
-            immaginiCarosello[i].classList.add('hidden');
-            immaginiCarosello[i].classList.remove('visible');
+    const arrayImagesCarousel = document.getElementsByClassName('carousel-item'),
+        previousButton= document.getElementById('previous-button'),
+        nextButton = document.getElementById('next-button');
+    let indexImage=0;
+
+    // Function for showing current Image
+    function showImage(index) {
+        // Hide all Images, adding the class 'hidden' to the elements of "arrayImagesCarousel"
+        for (let i = 0; i < arrayImagesCarousel.length; i++) {
+            arrayImagesCarousel[i].classList.add('hidden');
+            arrayImagesCarousel[i].classList.remove('visible');
         }
-        // nel for faccio scorrere tutti gli elementi dell'array/multifield e li nascondo
-        //mentre mostro soltanto l'elemento corrente: "indice" per l'appunto
-        immaginiCarosello[indice].classList.remove('hidden');
-        immaginiCarosello[indice].classList.add('visible');
+        // Show only current Image, removing default 'hidden' class to it
+        arrayImagesCarousel[index].classList.remove('hidden');
+        arrayImagesCarousel[index].classList.add('visible');
     }
 
-    /*
+    // Function for showing Next Image
     function viewNextImage() {
-        if (indiceImmagine<immaginiCarosello.length) {
-            output.innerHTML = immaginiCarosello[indiceImmagine];
-            indiceImmagine++;
-        } else {
-            output.innerHTML = immaginiCarosello[0];
+        // Going on in the array of Images
+        indexImage++;
+        // After the last Image, return to the first one
+        if (indexImage >= arrayImagesCarousel.length) {
+            indexImage = 0;
         }
-    }
-    nextButton.addEventListener('click',viewNextImage);
-});*/
-    function viewNextImage() {
-        // provo a capovolgere la vecchia funzione in modo da far incrementare l'indice immagini fuori dall'if
-        indiceImmagine++;
-        // e quindi se l'indice supera il numero di immagini, ritorna alla prima
-        if (indiceImmagine >= immaginiCarosello.length) {
-            indiceImmagine = 0;
-        }
-        // applico quindi la funzione dichiarata prima per mostrare esattamente l'immagine corrente
-        mostraImmagine(indiceImmagine);
+        // Show the Image with that index
+        showImage(indexImage);
     }
 
-    // definisco la funzione per visualizzare l'immagine precedente facendo il contrario della funzione next
+    // Function for showing Previous Image
     function viewPreviousImage() {
-        // Cioè devo decrementare l'indice
-        indiceImmagine--;
-        // e se arrivo all'inizio dell'array devo ritornare all'ultimo elemento
-        if (indiceImmagine < 0) {
-            indiceImmagine = immaginiCarosello.length - 1;
+        // Going back in the array of Images
+        indexImage--;
+        // After the fist Image, return to the last one
+        if (indexImage < 0) {
+            indexImage = arrayImagesCarousel.length - 1;
         }
-        // e di nuovo applico la funzione per mostrare l'immagine precedente
-        mostraImmagine(indiceImmagine);
+        //  Show the Image with that index
+        showImage(indexImage);
     }
 
-    // Visto che abbiamo dichiarato l'indiceImmagine come l'immagine alla posizione 0 e abbiamo definito la funzione mostraImmagine per mostrare gli elementi
-    // parto con il mostrare la prima immagine
-    mostraImmagine(indiceImmagine);
+    // Show the first Image
+    showImage(indexImage);
 
+    // Add events to buttons
     nextButton.addEventListener('click', viewNextImage);
-    prevButton.addEventListener('click', viewPreviousImage);
+    previousButton.addEventListener('click', viewPreviousImage);
 });
