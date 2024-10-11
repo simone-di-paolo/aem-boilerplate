@@ -1,0 +1,31 @@
+<section class="testimonial-start-component">
+    <div class="container-xxl bg-white p-0">
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp max-width-text" data-wow-delay="0.1s">
+                    <h1 class="mb-3">Our Clients Say!</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <sly data-sly-list.item="${resource.listChildren}">
+                        <sly data-sly-test="${item.name == 'clientCard'}">
+                            <sly data-sly-list.subitem="${item.listChildren}">
+                                <div class="${subitem.clientProfession == 'Teacher' ? 'testimonial-item bg-orange rounded p-5' : 'testimonial-item bg-light rounded p-5'}">
+                                    <p class="${subitem.clientProfession == 'Teacher' ? 'p-b-bolder' : 'fs-5'}">${subitem.cardDescription}</p>
+                                    <div class="d-flex align-items-center bg-white me-n5 border-radius50">
+                                        <img data-sly-test="${subitem.clientProfession != 'Consultant'}" class="img-fluid flex-shrink-0 rounded-circle dimension" src="${subitem.testimonialImage}">
+                                        <div class="ps-3">
+                                            <h3 class="mb-1">${subitem.clientName}</h3>
+                                            <span>${subitem.clientProfession}</span>
+                                        </div>
+                                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                                    </div>
+                                </div>
+                            </sly>
+                        </sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

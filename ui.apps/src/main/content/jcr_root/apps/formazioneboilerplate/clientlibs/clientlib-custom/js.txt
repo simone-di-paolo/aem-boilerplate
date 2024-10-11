@@ -14,5 +14,8 @@
 # limitations under the License.
 ###############################################################################
 
-js/pianeti.js
-js/banner.js
+js/owl.carousel.min.js
+js/wow.min.js
+js/easing.min.js
+js/waypoints.min.js
+js/main.js

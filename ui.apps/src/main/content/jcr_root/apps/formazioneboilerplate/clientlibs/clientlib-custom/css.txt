@@ -14,6 +14,6 @@
 # limitations under the License.
 ###############################################################################
 
-css/pianeti.css
-css/banner.css
-css/bannerB.css
+css/bootstrap.min.css
+css/style.css
+css/owl.carousel.min.css
