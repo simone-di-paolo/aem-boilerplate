@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Scheda Pianeti</title>
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+        <sly data-sly-call="${clientlib.all @ categories='formazioneboilerplate.custom'}"/>
+    </sly>
+
+</head>
+<body>
+<div class="divmain">
+    <h1>${properties.title}</h1>
+
+    <div class="divpianeti">
+        <sly data-sly-list.item="${resource.listChildren}">
+           <sly data-sly-test="${item.name == 'multifield1'}">
+               <sly data-sly-list.subitem="${item.listChildren}">
+                    <div class="divimg">
+                        <h2>${subitem.title}</h2>
+                        <img src="${subitem.image}">
+                    </div>
+               </sly>
+           </sly>
+        </sly>
+    </div>
+    <div class="divtable">
+        <table>
+            <tr>
+                <th>Nome Pianeta</th>
+                <th>Temperatura</th>
+                <th>Dimensioni</th>
+                <th>Distanza dalla terra</th>
+            </tr>
+            <sly data-sly-list.item="${resource.listChildren}">
+                <sly data-sly-test="${item.name == 'multifield2'}">
+                    <sly data-sly-list.subitem="${item.listChildren}">
+                        <tr>
+                            <td>${subitem.nomepianeta}</td>
+                            <td>${subitem.selectTemperatura}</td>
+                            <td>${subitem.dimensioni}</td>
+                            <td>${subitem.distanzaterra}</td>
+                        </tr>
+                    </sly>
+                </sly>
+            </sly>
+
+
+        </table>
+    </div>
+    <div class="divform">
+        <h2>Registrati!</h2>
+        <p>Riempi questo form con le informazioni richieste</p>
+        <form method="post">
+            <fieldset>
+                <label for="nome">Inserisci il tuo nome:
+                    <input id="nome" type="text" required/>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Seleziona la tua età:</legend>
+                <label for="età-18">
+                    <input id="età-18" type="radio" name="range-età" class="inline" checked/> <18</label><br>
+                <label for="età-35">
+                    <input id="età-35" type="radio" name="range-età" class="inline"/> 19-35 </label><br>
+                <label for="età-48">
+                    <input id="età-48" type="radio" name="range-età" class="inline"/> 36-48 </label><br>
+                <label for="età+49">
+                    <input id="età+49" type="radio" name="range-età" class="inline"/> >49 </label><br>
+            </fieldset>
+            <fieldset>
+                <label for="professione">Inserisci la tua professione:</label>
+                    <input id="professione" list="professionelist" name="professione"/>
+                <datalist id="professionelist">
+                    <option value="Astronomo"></option>
+                    <option value="Geologo"></option>
+                    <option value="Casalinga"></option>
+                </datalist>
+
+            </fieldset>
+            <fieldset>
+                <label for="paese">Seleziona la tua provincia:
+                    <select id="paese" name="paese" required>
+                        <option value="">(paese)</option>
+                        <option value="1">Roma</option>
+                        <option value="2">Napoli</option>
+                        <option value="3">Milano</option>
+                        <option value="4">Torino</option>
+                        <option value="5">Cagliari</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Scegli i tuoi interessi:</legend>
+                    <input id="astronomia" type="checkbox" name="astronomia" class="inline"/>
+                <label for="astronomia">astronomia</label><br>
+                    <input id="giochi" type="checkbox" name="giochi" class="inline"/>
+                <label for="giochi">giochi da tavolo</label><br>
+                    <input id="sport" type="checkbox" name="sport" class="inline"/>
+                <label for="sport">sport</label><br>
+            </fieldset>
+            <fieldset>
+                <label for="referrer">Come sei venuto a conoscenza del sito?
+                    <textarea id="referrer" name="referrer" rows="3" cols="30" placeholder ="Ho scoperto questo sito..."></textarea></label>
+            </fieldset>
+            <input type="submit" value="Invio"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

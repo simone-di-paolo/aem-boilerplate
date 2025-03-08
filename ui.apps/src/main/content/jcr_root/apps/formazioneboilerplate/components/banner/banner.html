@@ -1,0 +1,41 @@
+<section class="banner-section">
+    <div class="main-banner-container">
+        <div class="text-banner-container">
+            <h1 class="title-text-banner">
+                ${properties.titleTextBanner @ context='html'}
+            </h1>
+            <p class="text-banner">
+                ${properties.textBanner}
+            </p>
+            <a href="${properties.linkButton}"
+               class="button-getStarted" target="${properties.targetButton}">${properties.textButton}</a>
+        </div>
+        <div class="image-banner-container">
+            <div class="carousel-container">
+                <div class="carousel-stage">
+                    <div class="image-stage">
+                        <div class="image-item">
+                            <sly data-sly-list.item="${resource.listChildren}">
+                                <sly data-sly-test="${item.name == 'carouselBanner'}">
+                                    <sly data-sly-list.subitem="${item.listChildren}">
+                                        <div class="carousel-item hidden" id="carousel-item">
+                                            <img class="img-carousel" src="${subitem.imageCarousel}" alt="${subitem.altImg}">
+                                        </div>
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="previous-button" aria-label="Previous" id="previous-button" >
+                        <i class="arrow-left"></i>
+                    </button>
+                    <button class="next-button" aria-label="Next" id="next-button">
+                        <i class="arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
