@@ -1,0 +1,12 @@
+<body class="background" style="background-image: url('${pageProperties.imageBG @ context='uri'}');">
+<sly data-sly-test="${pageProperties.checkbox == 'false' ? pageProperties.imageLogo : ''}">
+    <img src="${pageProperties.imageLogo}" alt="Logo">
+</sly>
+</body>
+
+<style>
+    .background {
+        background-image: url('${pageProperties.imageBG @context="uri"}') ;
+        background-size: cover;
+    }
+</style>
