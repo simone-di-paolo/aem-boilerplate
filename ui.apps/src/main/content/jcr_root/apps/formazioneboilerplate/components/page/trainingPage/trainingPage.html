@@ -1,0 +1,21 @@
+
+<body class="background">
+<style>
+    .background {
+        background-image: url('${pageProperties.backgroundImage @context="uri"}') ;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; }
+
+</style>
+
+<!-- <sly data-sly-test="${pageProperties.logoImage}">
+    <img src="${pageProperties.logoImage @context='uri'}" alt="Logo">
+</sly> -->
+
+<sly data-sly-test="${pageProperties.showLogo}">
+    <!--  <div class="image-output"> -->
+    <img src="${pageProperties.logoImage @context='uri'}">
+</sly>
+
+</body>
