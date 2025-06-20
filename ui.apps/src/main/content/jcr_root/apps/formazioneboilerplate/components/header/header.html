@@ -1,0 +1,49 @@
+<style>
+
+    .site-menu ul {
+        text-transform: uppercase;
+        color: dimgray;
+        font-family: sans-serif;
+        font-weight: 500;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .site-menu ul:hover {
+            cursor: pointer;
+            color: crimson;
+
+        }
+    }
+
+</style>
+
+    <nav class="site-menu">
+     <!--   <div class="header-container m-0 d-flex justify-content-around" style="max-height:150px; padding:50px; width:100%"></div> -->
+
+<ul>
+        <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
+            <img src="${logo @context='uri'}" alt= 'Logo'>
+        </sly>
+
+    <sly data-sly-list.item="${resource.listChildren}">
+        <sly data-sly-test="${item.name == 'menuItems'}">
+        <sly data-sly-list.subitem="${item.listChildren}">
+
+    <div> ${subitem.label} </div>
+        <div> ${subitem.link} </div>
+
+  <!-- <div>
+            <li data-sly-list.item="${currentPage.listChildren}">
+                <a title="${subitem.link}">${item.label}</a>
+</div> -->
+        </sly>
+        </sly>
+    </sly>
+</ul>
+    </nav>
+

@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Training Page Component"
           sling:resourceSuperType="formazioneboilerplate/components/page"
-          componentGroup=".hidden"/> <!--gruppo a cui appartiene il componente -->
+          componentGroup="Formazione Boilerplate - Content"/> <!--gruppo a cui appartiene il componente -->
