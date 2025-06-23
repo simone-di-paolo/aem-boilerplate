@@ -1,0 +1,121 @@
+<div class="footer" >
+    <div class="top-div">
+        <sly data-sly-test.logo="${pageProperties.imageLogo @ context='html'}">
+            <img src="${logo @context='uri'}" alt='Logo'>
+        </sly>
+
+        <div class="menu-buttons">
+            <sly data-sly-list.item="${resource.listChildren}">
+                <sly data-sly-test="${item.name == 'multifield'}">
+                    <sly data-sly-list.subitem="${item.listChildren}">
+                        <div class="menu-buttons-link">
+                            <a href="${subitem.link @ context='uri'}" class="link">${subitem.label}</a>
+
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+
+    <div class="bottom-div">
+        <div class="copyright">
+            <p> ${properties.copyright} </p>
+        </div>
+
+        <div  class="bottom-right-div">
+            <div class="telefono">
+                <p>${properties.telefono}</p>
+            </div>
+
+            <div class="menu-social">
+                <sly data-sly-list.item="${resource.listChildren}">
+                    <sly data-sly-test="${item.name == 'multifieldSocial'}">
+                        <sly data-sly-list.subitem="${item.listChildren}">
+                            <div class="social-icon">
+                                <a href="${subitem.socialLink @ context='uri'}"><img src="${subitem.fileReference @ context='uri'}" alt="Logo" class="icone"></a>
+                            </div>
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<style>
+    .footer{
+        background-color: rgb(255, 255, 255);
+        font-family: Times New Roman;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .top-div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-buttons{
+        float: right;
+        width: 450px;
+        margin-right: 20px;
+        display: flex;
+    }
+
+    .bottom-div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #202020;
+    }
+
+
+    .menu-social{
+        margin-right: 60px;
+    }
+
+    .copyright{
+        float: left;
+        color: rgb(173, 173, 173);
+    }
+
+    .telefono {
+        color: rgb(173, 173, 173);
+        margin-right: 60px;
+    }
+
+    a {
+        color:rgb(173, 173, 173);
+    }
+
+    .bottom-right-div{
+        float: right;
+        display: inline-flex;
+    }
+
+    img {
+        width: 180px;
+        height: 90px;
+    }
+
+    .social-icon{
+        display: inline-flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        width: 24px;
+        height: 24px;
+        margin: 5px;
+        justify-content: center;
+    }
+
+    .link{
+        margin: 5px;
+    }
+
+</style>
+
