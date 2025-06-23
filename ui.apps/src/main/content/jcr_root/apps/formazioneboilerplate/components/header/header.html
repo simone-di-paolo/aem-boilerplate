@@ -1,49 +1,55 @@
 <style>
 
-    .site-menu ul {
-        text-transform: uppercase;
-        color: dimgray;
-        font-family: sans-serif;
-        font-weight: 500;
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
+    .site-menu{
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-
-        .site-menu ul:hover {
-            cursor: pointer;
-            color: crimson;
-
-        }
+        background-color: white;
+        padding: 30px;
+        border-bottom: 1px solid white;
+        font-family: sans-serif;
     }
+
+    .menu-items{
+        display: flex;
+        gap: 30px;
+
+    }
+
+    .menu-items a{
+        text-decoration: none;
+        color: dimgray;
+        position: relative;
+        font-size: 12px;
+        padding: 5px 0;
+        transition: color 0.3s ease-in;
+        text-transform: uppercase;
+        border-bottom: 2px solid blue;
+    }
+
+             .menu-items a:hover {
+                 color: red;
+
+             }
+
 
 </style>
 
-    <nav class="site-menu">
-     <!--   <div class="header-container m-0 d-flex justify-content-around" style="max-height:150px; padding:50px; width:100%"></div> -->
+<nav class="site-menu">
 
-<ul>
-        <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
-            <img src="${logo @context='uri'}" alt= 'Logo'>
-        </sly>
+    <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
+        <img src="${logo @context='uri'}" alt= 'Logo'>
+    </sly>
 
     <sly data-sly-list.item="${resource.listChildren}">
         <sly data-sly-test="${item.name == 'menuItems'}">
-        <sly data-sly-list.subitem="${item.listChildren}">
+            <sly data-sly-list.subitem="${item.listChildren}">
 
-    <div> ${subitem.label} </div>
-        <div> ${subitem.link} </div>
+                <div class="menu-items">
+                    <a href="${subitem.link @context='uri'}">${subitem.label @context='html'}</a>
+                </div>
+            </sly>
+        </sly>
 
-  <!-- <div>
-            <li data-sly-list.item="${currentPage.listChildren}">
-                <a title="${subitem.link}">${item.label}</a>
-</div> -->
-        </sly>
-        </sly>
-    </sly>
-</ul>
-    </nav>
+</nav>
 

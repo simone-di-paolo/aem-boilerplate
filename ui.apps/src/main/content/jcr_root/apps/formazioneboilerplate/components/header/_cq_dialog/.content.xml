@@ -40,7 +40,7 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                         fieldLabel="Link alla pagina"
-                                        name="./path"/>
+                                        name="./link"/>
                                         <!-- required="{Boolean}true"/> -->
 
                             </items>
