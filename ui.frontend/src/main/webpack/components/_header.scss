@@ -1,20 +1,32 @@
-.site-menu ul {
-  text-transform: uppercase;
-  color: dimgray;
-  font-family: sans-serif;
-  font-weight: 500;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+.header{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  padding: 30px;
+  border-bottom: 1px solid white;
+  font-family: sans-serif;
+}
 
+.header{
+  display: flex;
+  gap: 30px;
 
-  .site-menu ul:hover {
-    cursor: pointer;
-    color: crimson;
+}
 
-  }
+.menu-items a{
+  text-decoration: none;
+  color: dimgray;
+  position: relative;
+  font-size: 12px;
+  padding: 5px 0;
+  transition: color 0.3s ease-in;
+  text-transform: uppercase;
+  border-bottom: 2px solid blue;
+}
+
+.menu-items a:hover {
+  color: red;
+
 }
 

@@ -1,0 +1,87 @@
+<!-- <style>
+    .card {
+        background-color: #ff5e5e;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .card-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border-radius: 50%
+
+    }
+
+    .card-title {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0px;
+    }
+
+    .card-description {
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 10px 0 20px 0;
+    }
+
+    .card-button {
+        background-color: white;
+        color: #ff5e5e;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+</style> -->
+
+
+
+<div class="card">
+    <div class="card-icon">
+        <img src="${properties.fileReference}" alt="Icona della card">
+    </div>
+
+    <div class="card-title">
+        <h2> ${properties.text}</h2>
+    </div>
+
+    <div class="card-description">
+        <p>${properties.description}</p>
+    </div>
+
+    <button class="card-button"
+         data-label-on="${properties.labelButtonON}"
+       data-label-off="${properties.labelButtonOFF}">
+        ${properties.labelButtonON}
+    </button>
+
+
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.querySelector(".card-button");
+
+            if (toggleButton) {
+                toggleButton.addEventListener("click", function() {
+                    const labelOn = toggleButton.getAttribute("data-label-on");
+                    const labelOff = toggleButton.getAttribute("data-label-off");
+                    if (toggleButton.textContent.trim() === labelOn) {
+                        toggleButton.textContent = labelOff;
+                    } else {
+                        toggleButton.textContent = labelOn;
+                    }
+                });
+            }
+        });
+
+    </script>
+</div>
+
