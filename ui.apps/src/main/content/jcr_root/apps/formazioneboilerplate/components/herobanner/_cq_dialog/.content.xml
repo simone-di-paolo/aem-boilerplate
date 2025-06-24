@@ -49,14 +49,6 @@
                             fieldLabel="Etichetta bottone"
                             name="./bottoneLabel"/>
 
-                    <bottoneLink
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                            fieldLabel="Link bottone"
-                            name="./bottoneLink"
-                            rootPath="/content"
-                            required="false"/>
-
                 </items>
             </column>
         </items>

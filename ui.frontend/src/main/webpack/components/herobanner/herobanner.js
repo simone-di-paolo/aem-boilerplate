@@ -1,1 +1,0 @@
-const bottone = document.querySelector('a');

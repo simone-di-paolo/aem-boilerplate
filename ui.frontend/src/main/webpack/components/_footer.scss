@@ -26,11 +26,9 @@
   border-top: 1px solid #202020;
 }
 
-.icone {
-  width: 24px;
-  height: 24px;
-  margin: 5px;
-  justify-content: center;
+
+.menu-social{
+  margin-right: 60px;
 }
 
 .copyright{
@@ -53,15 +51,19 @@ a {
 }
 
 img {
-  width: 180px;
-  height: 90px;
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
 }
 
 .social-icon{
   display: inline-flex;
-  margin-right: 60px;
   justify-content: space-between;
   margin-top: 10px;
+  width: 24px;
+  height: 24px;
+  margin: 5px;
+  justify-content: center;
 }
 
 .link{
