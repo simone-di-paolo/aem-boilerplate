@@ -1,5 +1,7 @@
-
-<div class="hero-banner" style="background-image: url('${properties.fileReference @ context='uri'}');">
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.all @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+    <div class="hero-banner" style="background-image: url('${properties.fileReference @ context='uri'}');">
 
     <div class="overlay"></div>
     <div id="overlay-alert"></div>
@@ -18,7 +20,7 @@
         <div class="bottone">
             <button id="button">${properties.bottoneLabel}</button>
         </div>
-     <script src="_herobanner.js" defer ></script>
+
     </div>
 
 </div>

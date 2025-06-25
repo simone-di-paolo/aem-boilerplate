@@ -1,3 +1,8 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+
+
 <div class="footer" >
     <div class="top-div">
         <sly data-sly-test.logo="${pageProperties.imageLogo @ context='html'}">
