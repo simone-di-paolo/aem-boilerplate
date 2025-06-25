@@ -1,19 +1,21 @@
 
-<nav class="site-menu">
+<nav class="header">
 
-    <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
+    <div class="logo">
+        <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
         <img src="${logo @context='uri'}" alt= 'Logo'>
-    </sly>
+        </sly>
+    </div>
 
+    <div class="menu-items">
     <sly data-sly-list.item="${resource.listChildren}">
         <sly data-sly-test="${item.name == 'menuItems'}">
             <sly data-sly-list.subitem="${item.listChildren}">
 
-                <div class="menu-items">
                     <a href="${subitem.link @context='uri'}">${subitem.label @context='html'}</a>
-                </div>
+            </sly>
             </sly>
         </sly>
-
+    </div>
 </nav>
 

@@ -14,18 +14,19 @@
 
 }
 
+
 .menu-items a{
   text-decoration: none;
   color: dimgray;
   position: relative;
   font-size: 12px;
-  padding: 5px 0;
+  padding: 5px 20px;
   transition: color 0.3s ease-in;
   text-transform: uppercase;
   border-bottom: 2px solid blue;
 }
 
-.menu-items a:hover {
+.menu-items:hover {
   color: red;
 
 }
