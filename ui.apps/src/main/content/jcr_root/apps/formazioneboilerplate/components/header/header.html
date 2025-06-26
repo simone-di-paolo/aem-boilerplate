@@ -1,4 +1,7 @@
 
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+</sly>
 <nav class="site-menu">
 
     <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
@@ -14,6 +17,6 @@
                 </div>
             </sly>
         </sly>
-
+    </sly>
 </nav>
 

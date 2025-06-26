@@ -1,0 +1,75 @@
+.hero-banner{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  text-align: center;
+  color: white;
+}
+
+.hero-banner .overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.contenuto-testuale {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.descrizione{
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.bottone #button {
+  background-color: #f400a1;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+
+#mex {
+  color: #2020E0;
+  font-weight: bold;
+  background-color: white;
+  display: none;
+  z-index: 999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border: 5px solid #f400a1;
+}
+
+#closebtn {
+  color:black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+#overlay-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 999;
+}
+
