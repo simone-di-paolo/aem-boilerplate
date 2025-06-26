@@ -1,6 +1,8 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
-<sly data-sly-call="${clientLib.all @ categories='formazioneboilerplate.custom'}"/>
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+<sly data-sly-call="${clientLib.js @ categories='formazioneboilerplate.custom'}"/>
 </sly>
+
     <div class="hero-banner" style="background-image: url('${properties.fileReference @ context='uri'}');">
 
     <div class="overlay"></div>
@@ -9,8 +11,7 @@
     <!-- Modale Alert-->
     <div id="mex">
         <span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <h1>Attenzione!</h1>
-        <h6>Modulo attivato! </h6>
+        <h1 id="Nrandom"></h1>
     </div>
 
     <div class="contenuto-testuale">
