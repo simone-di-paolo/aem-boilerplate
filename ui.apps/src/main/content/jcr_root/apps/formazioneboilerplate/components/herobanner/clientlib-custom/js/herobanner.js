@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (i % 2 === 0)
                 listanumeri.push(" "+ i);
         }
-        lista.textContent = "I numeri pari da 0 a " +numero+ " sono " + listanumeri;
+        console.log(listanumeri);
+        
         mexAlert.style.display = 'block';
         overlay.style.display = 'block';
     }
