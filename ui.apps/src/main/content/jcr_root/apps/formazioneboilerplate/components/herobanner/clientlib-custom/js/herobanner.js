@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById('overlay-alert');
     const closeBtn = document.getElementById('closebtn');
     const numerorandom = document.getElementById('Nrandom');
+    const lista = document.getElementById('lista');
 
 
     function numRandom() {
@@ -21,6 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             numerorandom.textContent = "Il tuo numero fortunato è " + numero + " ed è dispari";
         }
+        let listanumeri = [];
+        for (let i = 0; i <= numero; i++) {
+            if (i % 2 === 0)
+                listanumeri.push(" "+ i);
+        }
+        lista.textContent = "I numeri pari da 0 a " +numero+ " sono " + listanumeri;
         mexAlert.style.display = 'block';
         overlay.style.display = 'block';
     }
