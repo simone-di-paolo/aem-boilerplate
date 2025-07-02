@@ -15,22 +15,60 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+
+    .form {
+        color: orange;
+        background-color: black;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    div#checkbox::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
+    div#nazionalita::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+    div#indirizzo::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+    div#datanascita::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
+    div#newsletter::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
 </style>
 
 <div class="background">
     <sly data-sly-test="${pageProperties.showLogo}">
         <img src="${pageProperties.logoImage @ context='uri'}" alt="Logo">
     </sly>
-
-    <!--Per stampare dati-->
-    <sly data-sly-use.model="com.formazioneboilerplate.core.models.FormModel"></sly>
-    <div class="form">
-        <div> Data di nascita: ${model.datadinascita}</div>
-        <div> Nazionalità: ${model.nazionalita}</div>
-        <div> Indirizzo: ${model.indirizzo}</div>
-        <div> Privacy: ${model.checkbox}</div>
-        <div> Newsletter: ${model.newsletter}</div>
-    </div>
+</div>
 
     <script data-sly-test.dataLayerEnabled="${page.data}">
         window.adobeDataLayer = window.adobeDataLayer || [];
@@ -51,5 +89,27 @@
         <sly data-sly-call="${footer.footer @ page = page}"></sly>
         <sly data-sly-include="body.socialmedia_end.html"></sly>
     </sly>
+
+<!--PER STAMPARE DATI-->
+<div class="form">
+    <div id="datanascita"></div>
+    <div id="nazionalita"></div>
+    <div id="indirizzo"></div>
+    <div id="checkbox"></div>
+    <div id="newsletter"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('datanascita').textContent = 'Data di nascita: ' + sessionStorage.getItem('datadinascita');
+        document.getElementById('nazionalita').textContent = 'Nazionalità: ' + sessionStorage.getItem('nazionalita');
+        document.getElementById('indirizzo').textContent = 'Indirizzo: ' + sessionStorage.getItem('indirizzo');
+        document.getElementById('checkbox').textContent = 'Privacy: ' + sessionStorage.getItem('checkbox');
+        document.getElementById('newsletter').textContent = 'Newsletter: ' + sessionStorage.getItem('newsletter');
+        console.log(window.location.search);
+    });
+</script>
+
+
 </body>
 </html>

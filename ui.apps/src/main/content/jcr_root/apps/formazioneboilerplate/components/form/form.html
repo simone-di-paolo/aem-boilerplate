@@ -6,17 +6,15 @@
 
 <sly data-sly-use.model="com.formazioneboilerplate.core.models.FormModel"></sly>
 
+<div id="form">
+    <input type="hidden" id="datadinascita" value="${model.datadinascita}" />
+    <input type="hidden" id="nazionalita" value="${model.nazionalita}" />
+    <input type="hidden" id="indirizzo" value="${model.indirizzo}" />
+    <input type="hidden" id="checkbox" value="${model.checkbox}" />
+    <input type="hidden" id="newsletter" value="${model.newsletter}" />
+</div>
+
 <div id="bottone">
-    <a href="${model.linkbottone}" target="_blank" class="link">${model.labelbottone}</a>
+    <a href="${model.linkbottone}" class="link" id="btn">${model.labelbottone}</a>
 </div>
-
-<div class="form">
-    <div id="datanascita"> Data di nascita: ${model.datadinascita}</div>
-    <div id="nazionalita"> Nazionalità: ${model.nazionalita}</div>
-    <div id="indirizzo"> Indirizzo: ${model.indirizzo}</div>
-    <div id="checkbox"> Privacy: ${model.checkbox}</div>
-    <div id="newsletter"> Newsletter: ${model.newsletter}</div>
-</div>
-
-
 

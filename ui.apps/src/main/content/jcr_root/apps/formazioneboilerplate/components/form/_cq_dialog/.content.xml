@@ -46,9 +46,8 @@
                               sling:resourceType="granite/ui/components/coral/foundation/form/switch"
                               fieldLabel="Do you want to receive our Newsletter?"
                               name="./newsletter"
-                              checked="{Boolean}false"
-                              values="true"
-                              uncheckedValue="false"/>
+                              uncheckedValue="{Boolean}false"
+                              value="true"/>
 
                       <labelbottone
                               jcr:primaryType="nt:unstructured"
