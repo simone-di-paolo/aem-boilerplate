@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" lang="${page.language}"
+      data-sly-use.head="head.html"
+      data-sly-use.footer="footer.html"
+      data-sly-use.redirect="redirect.html">
+<head data-sly-call="${head.head @ page = page}"></head>
+<body class="${page.cssClassNames}"
+      id="${page.id}"
+      data-cmp-data-layer-enabled="${page.data ? true : false}">
+
+<style>
+    .background {
+        background-image: url('${pageProperties.backgroundImage @ context="uri"}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+
+        .retrievedData {
+            background-color: #ff5e5e;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        #r-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+            color: antiquewhite;
+        }
+
+        #r-subtitle {
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 10px 0 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+</style>
+
+<div class="background">
+    <sly data-sly-test="${pageProperties.showLogo}">
+        <img src="${pageProperties.logoImage @ context='uri'}" alt="Logo">
+    </sly>
+
+    <script data-sly-test.dataLayerEnabled="${page.data}">
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        adobeDataLayer.push({
+            page: JSON.parse("${page.data.json @ context='scriptString'}"),
+            event:'cmp:show',
+            eventInfo: {
+                path: 'page.${page.id @ context="scriptString"}'
+            }
+        });
+    </script>
+  <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+         data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+    <sly data-sly-test="${!isRedirectPage}">
+        <sly data-sly-include="body.skiptomaincontent.html"></sly>
+        <sly data-sly-include="body.socialmedia_begin.html"></sly>
+        <sly data-sly-include="body.html"></sly>
+        <sly data-sly-call="${footer.footer @ page = page}"></sly>
+        <sly data-sly-include="body.socialmedia_end.html"></sly>
+    </sly>
+</div>
+
+
+
+<div class="retrievedData">
+    <div id="r-title"> Thank you for completing the survey! </div>
+    <div id="r-subtitle"> Here’s a quick summary of your responses:</div>
+    <div id="r-name"></div>
+    <div id="r-surname"></div>
+    <div id="r-birthdate"></div>
+    <div id="r-birthplace"></div>
+</div>
+
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("r-name").textContent = getQueryParam("name");
+        document.getElementById("r-surname").textContent =  getQueryParam("surname");
+        document.getElementById("r-birthdate").textContent = getQueryParam("birthdate");
+        document.getElementById("r-birthplace").textContent =  getQueryParam("birthplace");
+    });
+
+</script>

@@ -1,0 +1,54 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+
+
+<div class="footer" >
+    <div class="top-div">
+        <sly data-sly-test.logo="${pageProperties.imageLogo @ context='html'}">
+            <img src="${logo @context='uri'}" alt='Logo'>
+        </sly>
+
+        <div class="menu-buttons">
+            <sly data-sly-list.item="${resource.listChildren}">
+                <sly data-sly-test="${item.name == 'multifield'}">
+                    <sly data-sly-list.subitem="${item.listChildren}">
+                        <div class="menu-buttons-link">
+                            <a href="${subitem.link @ context='uri'}" class="link">${subitem.label}</a>
+
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+
+    <div class="bottom-div">
+        <div class="copyright">
+            <p> ${properties.copyright} </p>
+        </div>
+
+        <div  class="bottom-right-div">
+            <div class="telefono">
+                <p>${properties.telefono}</p>
+            </div>
+
+            <div class="menu-social">
+                <sly data-sly-list.item="${resource.listChildren}">
+                    <sly data-sly-test="${item.name == 'multifieldSocial'}">
+                        <sly data-sly-list.subitem="${item.listChildren}">
+                            <div class="social-icon">
+                                <a href="${subitem.socialLink @ context='uri'}"><img src="${subitem.fileReference @ context='uri'}" alt="Logo" class="icone"></a>
+                            </div>
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
