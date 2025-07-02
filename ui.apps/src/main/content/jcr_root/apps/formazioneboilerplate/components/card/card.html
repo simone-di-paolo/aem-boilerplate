@@ -1,0 +1,62 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" xmlns="http://www.w3.org/1999/html"/>
+<sly data-sly-call="${clientlib.css @ categories='formazioneboilerplate.myClientlib'}"/>
+<sly data-sly-call="${clientlib.js @ categories='formazioneboilerplate.myClientlib'}"/>
+</sly>
+
+
+
+<div class="card">
+    <div class="card-icon">
+        <img src="${properties.fileReference}" alt="Icona della card">
+    </div>
+
+    <div class="card-title">
+        <h2> ${properties.text}</h2>
+    </div>
+
+    <div class="card-description">
+       <p> ${properties.description}</p>
+    </div>
+
+    <button class="card-button"
+            data-label-on="${properties.labelButtonON}"
+            data-label-off="${properties.labelButtonOFF}">
+        ${properties.labelButtonON}
+    </button>
+
+    <div class="modal-button">
+        <button id="openModal">Lost your password?</button>
+
+        <div class="modal-overlay-hide">
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+
+
+                    <form id="questionForm">
+                        <div class="question" id="question1">
+                            <label for="q1"> What was the name of your first pet?</label>
+                            <textarea id="q1" name="question1" required></textarea>
+                        </div>
+
+                        <div class="question" id="question2">
+                            <label for="q2"> What city were you born in?</label>
+                            <textarea id="q2" name="question2" required></textarea>
+                        </div>
+
+                        <div class="question" id="question3">
+                            <label for="q3"> What was the name of your elementary school?</label>
+                            <textarea id="q3" name="question3" required></textarea>
+                        </div>
+
+                        <div class="question" id="question4">
+                            <label for="q4"> What is your mother’s maiden name?</label>
+                            <textarea id="q4" name="question4" required></textarea>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

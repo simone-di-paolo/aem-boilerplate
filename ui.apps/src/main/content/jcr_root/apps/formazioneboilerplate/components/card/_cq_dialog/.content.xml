@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <icon
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                            allowUpload="{Boolean}false"
+                            autoStart="{Boolean}false"
+                            class="cq-droptarget"
+                            fieldLabel="Drag and Drop Image here"
+                            fileNameParameter="./fileName"
+                            fileReferenceParameter="./fileReference"
+                            mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                            multiple="{Boolean}false"
+                            title="Drag and Drop Image"
+                            uploadUrl="${suffix.path}"
+                            useHTML5="{Boolean}true"
+                            name="./icon"/>
+                    <title
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Text"
+                            name="./text"/>
+                    <description
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Description"
+                            name="./description"/>
+                    <labelButtonON
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Show more"
+                            name="./labelButtonON"/>
+
+                    <labelButtonOFF
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Show less"
+                            name="./labelButtonOFF"/>
+
+
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,33 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 30px;
+  border-bottom: 1px solid white;
+  font-family: sans-serif;
+}
+
+.header{
+  display: flex;
+  gap: 30px;
+
+}
+
+
+.menu-items a{
+  text-decoration: none;
+  color: dimgray;
+  position: relative;
+  font-size: 12px;
+  padding: 5px 20px;
+  transition: color 0.3s ease-in;
+  text-transform: uppercase;
+  border-bottom: 2px solid blue;
+}
+
+.menu-items:hover {
+  color: red;
+
+}
+
