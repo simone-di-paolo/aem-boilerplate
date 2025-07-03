@@ -1,0 +1,20 @@
+.census-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-box {
+    max-width: 400px;
+    width: 100%;
+    background: #f0f4f8;
+    border: 1px solid #d9e2ec;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    font-family: 'Segoe UI', sans-serif;
+    color: #102a43;
+    transition: transform 0.2s ease;
+}
