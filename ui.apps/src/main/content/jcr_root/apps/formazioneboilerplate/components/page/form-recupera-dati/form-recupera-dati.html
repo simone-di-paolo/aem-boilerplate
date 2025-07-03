@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" lang="${page.language}"
+      data-sly-use.head="head.html"
+      data-sly-use.footer="footer.html"
+      data-sly-use.redirect="redirect.html">
+<head data-sly-call="${head.head @ page = page}"></head>
+<body class="${page.cssClassNames}"
+      id="${page.id}"
+      data-cmp-data-layer-enabled="${page.data ? true : false}">
+
+<style>
+    .background {
+        background-image: url('${pageProperties.backgroundImage @ context="uri"}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .form {
+        color: orange;
+        background-color: black;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    div#checkbox::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
+    div#nazionalita::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+    div#indirizzo::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+    div#datanascita::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
+    div#newsletter::after {
+        content: "";
+        display: block;
+        margin-top: 4px;
+        border-bottom: 1px solid #ccc; /* linea sottile grigia */
+    }
+
+</style>
+
+<div class="background">
+    <sly data-sly-test="${pageProperties.showLogo}">
+        <img src="${pageProperties.logoImage @ context='uri'}" alt="Logo">
+    </sly>
+</div>
+
+    <script data-sly-test.dataLayerEnabled="${page.data}">
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        adobeDataLayer.push({
+            page: JSON.parse("${page.data.json @ context='scriptString'}"),
+            event:'cmp:show',
+            eventInfo: {
+                path: 'page.${page.id @ context="scriptString"}'
+            }
+        });
+    </script>
+    <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+         data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+    <sly data-sly-test="${!isRedirectPage}">
+        <sly data-sly-include="body.skiptomaincontent.html"></sly>
+        <sly data-sly-include="body.socialmedia_begin.html"></sly>
+        <sly data-sly-include="body.html"></sly>
+        <sly data-sly-call="${footer.footer @ page = page}"></sly>
+        <sly data-sly-include="body.socialmedia_end.html"></sly>
+    </sly>
+
+<!--PER STAMPARE DATI-->
+<div class="form">
+    <div id="datanascita"></div>
+    <div id="nazionalita"></div>
+    <div id="indirizzo"></div>
+    <div id="checkbox"></div>
+    <div id="newsletter"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('datanascita').textContent = 'Data di nascita: ' + sessionStorage.getItem('datadinascita');
+        document.getElementById('nazionalita').textContent = 'Nazionalità: ' + sessionStorage.getItem('nazionalita');
+        document.getElementById('indirizzo').textContent = 'Indirizzo: ' + sessionStorage.getItem('indirizzo');
+        document.getElementById('checkbox').textContent = 'Privacy: ' + sessionStorage.getItem('checkbox');
+        document.getElementById('newsletter').textContent = 'Newsletter: ' + sessionStorage.getItem('newsletter');
+        console.log(window.location.search);
+    });
+</script>
+
+
+</body>
+</html>

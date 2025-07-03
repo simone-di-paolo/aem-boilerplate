@@ -1,0 +1,9 @@
+
+#bottone .link{
+    text-decoration: none;
+    color: black;
+    background-color: orange;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+}

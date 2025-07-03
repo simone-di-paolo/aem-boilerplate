@@ -1,0 +1,20 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+<sly data-sly-call="${clientLib.js @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+
+
+<sly data-sly-use.model="com.formazioneboilerplate.core.models.FormModel"></sly>
+
+<div id="form">
+    <input type="hidden" id="datadinascita" value="${model.datadinascita}" />
+    <input type="hidden" id="nazionalita" value="${model.nazionalita}" />
+    <input type="hidden" id="indirizzo" value="${model.indirizzo}" />
+    <input type="hidden" id="checkbox" value="${model.checkbox}" />
+    <input type="hidden" id="newsletter" value="${model.newsletter}" />
+</div>
+
+<div id="bottone">
+    <a href="${model.linkbottone}" class="link" id="btn">${model.labelbottone}</a>
+</div>
+
