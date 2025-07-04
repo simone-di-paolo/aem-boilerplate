@@ -1,0 +1,29 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+
+<sly data-sly-use.myModel="com.formazioneboilerplate.core.models.CensusContactModel" />
+
+<div class="census-container">
+    <sly data-sly-list.item="${myModel.contact}">
+        <div class="contact-box">
+            <sly data-sly-test="${item.contactName}">
+                <p><strong>Name:</strong> ${item.contactName @ context='html'}</p>
+            </sly>
+
+            <sly data-sly-test="${item.contactSurname}">
+                <p><strong>Surname:</strong> ${item.contactSurname @ context='html'}</p>
+            </sly>
+
+            <sly data-sly-test="${item.contactEmail}">
+                <p><strong>Email:</strong>
+                    <a href="mailto:${item.contactEmail @ context='html'}">${item.contactEmail @ context='html'}</a>
+                </p>
+            </sly>
+
+            <sly data-sly-test="${item.contactPhone}">
+                <p><strong>Phone:</strong> ${item.contactPhone @ context='html'}</p>
+            </sly>
+        </div>
+    </sly>
+</div>
