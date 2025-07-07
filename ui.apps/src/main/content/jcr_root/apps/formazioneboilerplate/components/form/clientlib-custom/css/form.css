@@ -6,4 +6,15 @@
     border-radius: 20px;
     padding: 10px 20px;
     font-weight: bold;
+    margin-top: 100px;
+}
+
+#b {
+    color: black;
+    background-color: #f400a1;
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+
 }
