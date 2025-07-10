@@ -1,0 +1,27 @@
+<sly data-sly-use.phoneModel="com.formazioneboilerplate.core.models.PhoneNumberModel">
+</sly>
+
+<div class="list-number">
+
+    <h2>Mobile phones</h2>
+    <sly data-sly-list.cell="${phoneModel.mobile}">
+        <p class="Mobile">
+            <strong>Mobile phone:</strong> ${cell}
+        </p>
+    </sly>
+
+    <h2>Office phones</h2>
+    <sly data-sly-list.work="${phoneModel.office}">
+        <p class="Office">
+            <strong>Office phone:</strong> ${work}
+        </p>
+    </sly>
+
+    <h2>Home phones</h2>
+    <sly data-sly-list.myPlace="${phoneModel.home}">
+        <p class="Home">
+            <strong>Home phone:</strong> ${myPlace}
+        </p>
+    </sly>
+
+</div>
