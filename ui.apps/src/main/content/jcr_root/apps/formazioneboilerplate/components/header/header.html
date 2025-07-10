@@ -1,0 +1,22 @@
+
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+<sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+<nav class="site-menu">
+
+    <sly data-sly-test.logo="${pageProperties.logoImage @context='html'}">
+        <img src="${logo @context='uri'}" alt= 'Logo'>
+    </sly>
+
+    <sly data-sly-list.item="${resource.listChildren}">
+        <sly data-sly-test="${item.name == 'menuItems'}">
+            <sly data-sly-list.subitem="${item.listChildren}">
+
+                <div class="menu-items">
+                    <a href="${subitem.link @context='uri'}">${subitem.label @context='html'}</a>
+                </div>
+            </sly>
+        </sly>
+    </sly>
+</nav>
+

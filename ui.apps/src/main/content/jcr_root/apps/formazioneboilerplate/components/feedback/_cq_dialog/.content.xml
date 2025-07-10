@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <multifield
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            composite="{Boolean}true"
+                            fieldLabel="Feedback">
+                        <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                name="./multifield">
+                            <items jcr:primaryType="nt:unstructured">
+
+                                <name
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Add your name and surname"
+                                        name="./name" />
+                                <feedback
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        fieldLabel="Write your Feedback"
+                                        name="./feedback"
+                                        rows="{Long}5"
+                                        cols="{Long}40" />
+                                <rating
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        fieldLabel="Rate this product"
+                                        name="./rating"
+                                        required="{Boolean}true">
+
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <item0 jcr:primaryType="nt:unstructured" text="⭐☆☆☆☆" value="1"/>
+                                        <item1 jcr:primaryType="nt:unstructured" text="⭐⭐☆☆☆" value="2"/>
+                                        <item2 jcr:primaryType="nt:unstructured" text="⭐⭐⭐☆☆" value="3"/>
+                                        <item3 jcr:primaryType="nt:unstructured" text="⭐⭐⭐⭐☆" value="4"/>
+                                        <item4 jcr:primaryType="nt:unstructured" text="⭐⭐⭐⭐⭐" value="5"/>
+                                    </items>
+                                </rating>
+
+
+                            </items>
+                        </field>
+                    </multifield>
+
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,15 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+
+<sly data-sly-use.feedback="com.formazioneboilerplate.core.models.FeedbackModel"></sly>
+<div class="feedback">
+    <sly data-sly-list.list="${feedback.multifield}">
+        <div class="feedback-list">
+            <p><strong>Name and surname:</strong> ${list.name}</p>
+            <p><strong>Rating:</strong> ${list.rating}</p>
+            <p><strong>Feedback:</strong> ${list.feedback}</p>
+        </div>
+    </sly>
+</div>
+
+</sly>
