@@ -1,0 +1,29 @@
+<sly data-sly-use.model="com.formazioneboilerplate.core.models.PersonalInfoModel" />
+
+<div class="personal-info">
+    <h1>Personal Information</h1>
+    <h2>Name:</h2>
+    <ul>
+        <sly data-sly-list.nomi="${model.name}">
+            <li>${nomi}</li>
+        </sly>
+        <h2>Surname:</h2>
+        <sly data-sly-list.cognomi="${model.surname}">
+            <li>${cognomi}</li>
+        </sly>
+        <h2>Nationality:</h2>
+        <sly data-sly-list.nazionalita="${model.nationality}">
+            <li>${nazionalita}</li>
+        </sly>
+        <h2>Age:</h2>
+        <sly data-sly-list.eta="${model.age}">
+            <li>${eta}</li>
+        </sly>
+        <h2>Genre:</h2>
+        <sly data-sly-list.genere="${model.gender}">
+            <li>${genere}</li>
+        </sly>
+    </ul>
+</div>
+
+

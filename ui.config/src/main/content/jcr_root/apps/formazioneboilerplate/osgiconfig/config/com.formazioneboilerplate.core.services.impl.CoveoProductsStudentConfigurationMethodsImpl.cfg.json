@@ -1,0 +1,8 @@
+{
+  "getStudentName": "Satyam",
+  "getRollNumber": 1020,
+  "getSubjects": ["Java","C++"],
+  "getCountries": "India",
+  "getRegular": true
+}
+
