@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById('btn');
 
     btn.addEventListener("click", (event) => {
-        event.preventDefault();
-
+        event.preventDefault(); // permette di arrestare e non inviare link come get
 
         const datadinascita = document.getElementById('datadinascita').value;
         const nazionalita = document.getElementById('nazionalita').value;

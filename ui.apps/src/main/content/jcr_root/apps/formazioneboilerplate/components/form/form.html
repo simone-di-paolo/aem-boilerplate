@@ -6,13 +6,14 @@
 
 <sly data-sly-use.model="com.formazioneboilerplate.core.models.FormModel"></sly>
 
-<div id="form">
-    <input type="hidden" id="datadinascita" value="${model.datadinascita}" />
-    <input type="hidden" id="nazionalita" value="${model.nazionalita}" />
-    <input type="hidden" id="indirizzo" value="${model.indirizzo}" />
+<form id="form" method="post" action="/bin/myservletChiara">
+    <input type="hidden" id="datadinascita" name="datadinascita" value="${model.datadinascita}" />
+    <input type="hidden" id="nazionalita" name="nazionalita" value="${model.nazionalita}" />
+    <input type="hidden" id="indirizzo" name="indirizzo" value="${model.indirizzo}" />
     <input type="hidden" id="checkbox" value="${model.checkbox}" />
     <input type="hidden" id="newsletter" value="${model.newsletter}" />
-</div>
+    <button id="b" type="submit">${model.labelbottone}</button>
+</form>
 
 <div id="bottone">
     <a href="${model.linkbottone}" class="link" id="btn">${model.labelbottone}</a>
