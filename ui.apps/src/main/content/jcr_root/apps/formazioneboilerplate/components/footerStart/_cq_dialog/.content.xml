@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Footer Start Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+<content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+    <items jcr:primaryType="nt:unstructured">
+        <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+            <items jcr:primaryType="nt:unstructured">
+                <tab1
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Get In Touch"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <contact
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Contacts">
+                            <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./contact">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <text
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Write the Get In Touch Info here"
+                                                    name="./text"/>
+                                        </items>
+                              </field>
+                        </contact>
+                        <social
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Social">
+                            <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./social">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <logoImage
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                            name="./logoImage"
+                                            label="Upload the social logo"
+                                            fileNameParameter="./fileName"
+                                            fileReferenceParameter="./fileReference"
+                                            mimeTypes="[image/png,image/jpeg,image/svg+xml]"
+                                    />
+
+
+                                    <socialLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Social Link"
+                                            name="./socialLink"/>
+                                </items>
+                            </field>
+                        </social>
+                    </items>
+                </tab1>
+
+                <tab2
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Quick Links - Photo Gallery"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <quicklinks
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Quick Links">
+                            <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./quicklinks">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <label
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Write a Label"
+                                            name="./label" />
+
+                                    <link
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Add a link"
+                                            name="./link"/>
+                                </items>
+                            </field>
+                        </quicklinks>
+                        <images
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Images">
+                            <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./images">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <image
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                            name="./image"
+                                            label="Upload your image here"
+                                            fileNameParameter="./fileName"
+                                            fileReferenceParameter="./fileReference"
+                                            mimeTypes="[image/png,image/jpeg,image/svg+xml]"
+                                    />
+                                </items>
+                            </field>
+                        </images>
+                    </items>
+                </tab2>
+
+                <tab3
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Newsletter"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <newslettertext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Write the newsletter description here"
+                                name="./newslettertext"/>
+                        <placeholderEmail
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                name="./placeholderEmail"
+                                fieldLabel="Write the email placeholder here"/>
+
+                        <labelsignup
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Write a Label for the sign up button"
+                                name="./labelsignup" />
+
+                        </items>
+                </tab3>
+
+                <tab4
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer bottom"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <copyright
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Write the copyright here"
+                                name="./copyright"/>
+                        <footermenu
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Footer Menu">
+                            <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./footermenu">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <label
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Write a Label"
+                                            name="./label" />
+
+                                    <link
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Add a link"
+                                            roothPath="/content/formazioneboilerplate"
+                                            name="./link"/>
+                                </items>
+                            </field>
+                        </footermenu>
+                    </items>
+                </tab4>
+            </items>
+        </tabs>
+    </items>
+</content>
+</jcr:root>
+
+
+
+
+
+
+
