@@ -1,0 +1,98 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientLib.css @ categories='formazioneboilerplate.custom'}"/>
+    <sly data-sly-call="${clientLib.js @ categories='formazioneboilerplate.custom'}"/>
+</sly>
+
+<div class="footerStart">
+    <!--Top div-->
+    <div class="topDiv">
+        <div class="get-in-touch">
+            <h3>Get In Touch</h3>
+            <div class="get-in-touch-text">
+                <ul>
+                    <sly data-sly-list.item="${resource.listChildren}">
+                        <sly data-sly-test="${item.name == 'contact'}">
+                            <sly data-sly-list.subitem="${item.listChildren}">
+                                <li>${subitem.text}</li>
+                            </sly>
+                        </sly>
+                    </sly>
+                </ul>
+            </div>
+            <div class="get-in-touch-social">
+                <sly data-sly-list.item="${resource.listChildren}">
+                    <sly data-sly-test="${item.name == 'social'}">
+                        <sly data-sly-list.subitem="${item.listChildren}">
+                            <div class="social-icon">
+                                <a class="alink" href="${subitem.socialLink @ context='uri'}"><img src="${subitem.fileReference @ context='uri'}" alt="Logo" class="icone"></a>
+                            </div>
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <sly data-sly-list.item="${resource.listChildren}">
+                    <sly data-sly-test="${item.name == 'quicklinks'}">
+                        <sly data-sly-list.subitem="${item.listChildren}">
+                            <li>
+                                <a class="alink" href="${subitem.link}">${subitem.label}</a>
+                            </li>
+                        </sly>
+                    </sly>
+                </sly>
+            </ul>
+        </div>
+        <div class="center-images">
+            <h3>Photo Gallery</h3>
+            <div class ="actual-images">
+                <sly data-sly-list.item="${resource.listChildren}">
+                    <sly data-sly-test="${item.name == 'images'}">
+                        <sly data-sly-list.subitem="${item.listChildren}">
+                            <img src="${subitem.fileReference @ context='uri'}" alt="Logo" class="foto">
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+
+
+        <div class="newsletter">
+            <h3>Newsletter</h3>
+            <div class="newsletter-text">
+                <p>${properties.newslettertext}</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="${properties.placeholderEmail}"/>
+                <button id="signupbutton" type="button">${properties.labelsignup}</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alert-->
+    <div id="alert">
+        <span id="closebutton" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h2 id="alert-message"></h2>
+    </div>
+    <div id="overlay"></div>
+
+    <!-- Botton div-->
+    <div class="bottomDiv">
+        <div class="copyrightStart">
+            <p> ${properties.copyright} </p>
+        </div>
+
+       <sly data-sly-use.model="com.formazioneboilerplate.core.models.FooterStartMultifieldModel"></sly>
+        <div class="footerMenu">
+            <sly data-sly-list.item="${model.footermenu}">
+                <a class ="alink" href="${item.link}">${item.label}</a>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+
+    </div>
+</div>
