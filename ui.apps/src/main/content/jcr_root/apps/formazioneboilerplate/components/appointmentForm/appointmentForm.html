@@ -1,0 +1,36 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.js @ categories='formazioneboilerplate.myClientlib'}" />
+<sly data-sly-call="${clientlib.css @ categories='formazioneboilerplate.myClientlib'}" />
+
+<form class="AppointmentForm">
+    <div class="form-group">
+        <input class="guardianName" type="text" placeholder="${properties.guardianName}" />
+        <div class="error guardianName-error"></div>
+    </div>
+
+    <div class="form-group">
+        <input class="guardianEmail" type="email" placeholder="${properties.guardianEmail}" />
+        <div class="error guardianEmail-error"></div>
+    </div>
+
+    <div class="form-group">
+        <input class="childName" type="text" placeholder="${properties.childName}" />
+        <div class="error childName-error"></div>
+    </div>
+
+    <div class="form-group">
+        <input class="childAge" type="number" placeholder="${properties.childAge}" />
+        <div class="error childAge-error"></div>
+    </div>
+
+    <div class="form-group textarea-group">
+        <textarea class="message" placeholder="${properties.message}"></textarea>
+        <div class="error message-error"></div>
+    </div>
+
+    <div class="submit-button">
+        <button id="submitButtonForm" type="button">
+            ${properties.submitButton}
+        </button>
+    </div>
+</form>
