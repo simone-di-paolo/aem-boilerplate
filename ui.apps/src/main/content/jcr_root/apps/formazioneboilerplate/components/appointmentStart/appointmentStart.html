@@ -1,0 +1,33 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+
+<sly data-sly-call="${clientlib.css @ categories='formazioneboilerplate.myClientlib'}"/>
+<sly data-sly-call="${clientlib.js @ categories='formazioneboilerplate.myClientlib'}"/>
+
+
+<sly data-sly-call="${clientlib.css @ categories='myClientlib_appointmentStart'}"/>
+<sly data-sly-call="${clientlib.js @ categories='myClientlib_appointmentStart'}"/>
+
+
+<sly data-sly-call="${clientlib.css @ categories='myClientlib_appointmentForm'}"/>
+<sly data-sly-call="${clientlib.js @ categories='myClientlib_appointmentForm'}"/>
+
+<sly data-sly-use.start="com.formazioneboilerplate.core.models.AppointmentStartModel"/>
+
+<div class="AppointmentStart">
+    <div class="title">${start.title}</div>
+
+    <div class="form-image-wrapper">
+        <div class="form-container">
+            <sly data-sly-resource="${'appointmentForm' @ resourceType='formazioneboilerplate/components/appointmentForm'}"/>
+
+         <!--    <div class="submit-button">
+                <button class="submitButton" type="button">Submit</button>
+            </div> --> 
+        </div>
+
+        <div class="image">
+            <img src="${start.image @ context='uri'}" alt="Image" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+.AppointmentForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.AppointmentForm input,
+.AppointmentForm textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.AppointmentForm textarea.message {
+    grid-column: span 2;
+    height: 100px;
+    resize: vertical;
+}
+
+.AppointmentForm input::placeholder,
+.AppointmentForm textarea::placeholder {
+    color: #888;
+}
+
+.AppointmentForm .submit-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.AppointmentForm #submitButtonForm {
+    background-color: #ff6b5a;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.AppointmentForm #submitButtonForm:hover {
+    background-color: #e85c4b;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin: 4px 0 10px 0;
+}
+
+.AppointmentForm .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.AppointmentForm .textarea-group {
+    grid-column: span 2;
+}
+
+.AppointmentForm .submit-button {
+    grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+    .AppointmentForm {
+        grid-template-columns: 1fr;
+    }
+
+    .AppointmentForm textarea.message {
+        grid-column: span 1;
+    }
+}
